@@ -35,42 +35,64 @@ for(const x of [45,85]){for(let z=-80;z<=-50;z+=6)B(sg,x,0,z,.25,4,.25,wood);for
 label(sg,'HORSE CORRAL · position / size estimated',65,7,-65,3);
 label(sg,'817 ft paved road · schematic segment, not full length',5,2,51,4);
 
-// Main house, 48 × 30 conceptual envelope. y=10 main / y=0 lower / y=20 upper.
-const m=groups.main;B(m,0,9.55,0,48,.45,30,wood);B(m,0,10,-15,48,9,.25,wall);B(m,-24,10,0,.25,9,30,wall);B(m,24,10,-4,.25,8,22,wall);
-// View-side glass frames, no full wall so furnishings remain visible.
-for(const x of [-19,-12,-5,4,13,21]){windowUnit(m,x,10.4,14.9,6,6.5);}partition(m,-.5,10,-6,.25,18);partition(m,10,10,-8,.25,14);partition(m,17,10,7,14,.25,3.1);partition(m,-13,10,6,22,.25,1.5);
-// Lounge 22'11 × 17' room reference, moody club composition.
-rug(m,-12.5,10,-4.5,19,14,0x2c2634);piano(m,-15,10,-6);chair(m,-8,10,-1,.5);chair(m,-4.5,10,-3,-.5);bench(m,-7,10,2,4);
-// Stone fireplace and bookcases on far wall.
-B(m,-12,10,-14.3,8,9,1.3,stone);for(let j=0;j<9;j++)for(let i=0;i<7;i++)B(m,-15.6+i*1.18+(j%2)*.3,10+j*.92,-13.55,1.08,.76,.2,material(0x77736b+(i%3)*0x080604));B(m,-12,10.4,-13.36,3,2.3,.1,0x101010);B(m,-12,10.7,-13.2,2.2,.25,.2,0xf49635);B(m,-12,13.2,-13.3,9,.35,1.3,wood);
-for(const x of [-20,-4]){B(m,x,10,-14,3.7,7.7,1.3,0x4b4033);for(let j=0;j<5;j++){B(m,x,10.3+j*1.45,-13.7,3.55,.14,1.4,wood);for(let i=0;i<6;i++)B(m,x-1.2+i*.4,10.5+j*1.45,-13.55,.22,.8+(i%3)*.12,.5,[0x697475,0x775543,0xaca484][i%3]);}}
-// Back bar, mirrored artwork, lamp and club lighting.
-B(m,-22.9,10,0,1.5,3.2,7,0x302a26);B(m,-22.9,13.2,0,1.7,.15,7.3,gold);for(let i=0;i<7;i++)C(m,-22.9,13.35,-2.4+i*.75,.13,.65,i%2?0x335d3d:0x795139);B(m,-23.7,14,-2,.12,3,4,0x40352e);for(let i=0;i<4;i++)for(let j=0;j<3;j++)B(m,-23.56,14.1+j*.9,-3.7+i*.9,.1,.8,.8,material(0x9eaeaf,null,[1,1],.12,.8));C(m,-3,10,3,.6,.15,metal);C(m,-3,10,3,.04,5,gold);C(m,-3,15,3,.85,1,0xe8c28a,1);plant(m,-21,10,11);light(m,-12,15,-12,0xffb352,1.8);light(m,-4,14,0,0xbd78ff,.9);light(m,-19,13,0,0xff9f49,1.2);
-// Kitchen and dining, existing finishes retained.
-for(const [x,z,w,d] of [[4,-13,10,2],[1,-9,2,7]]){B(m,x,10,z,w,2.8,d,wood);B(m,x,12.8,z,w+.2,.18,d+.2,0xc7c4b9);}B(m,8,10,-12.7,2.6,6,2.4,0xa0a4a5);B(m,3.5,10,-12.9,2.5,3,2.2,0x484b4d);for(let i=0;i<4;i++)C(m,2.8+(i%2)*1.2,13.1,-13.4+Math.floor(i/2)*1.1,.33,.02,0x131518);B(m,1,13.1,-8.7,1.4,.04,2,0x6b7678);B(m,4,10,-3,8,3.2,2.1,wood);B(m,4,13.2,-3,8.2,.15,2.3,0xbdbcb3);for(const x of [1.3,4,6.7]){C(m,x,10,-.7,.63,2.25,metal);C(m,x,12.25,-.7,.7,.15,leather);}B(m,5,12,6,7,.2,3.4,wood);for(const x of [2.5,5,7.5])for(const z of [3.8,8.2])chair(m,x,10,z,z<6?Math.PI:0,material(0x6d6050));
-bed(m,17,10,-5,6.3,6.6);label(m,'PRIMARY · MAIN LEVEL',17,17,-4,2.3);partition(m,17,10,-.1,13,.25,1);B(m,20,10,3,5,2.5,2,wood);B(m,20,12.5,3,5.2,.12,2.2,0xe6e3da);B(m,13,10,3,3,1.8,3,0xe7e4de);label(m,'Private bath · estimated',17,14,4,1.6);
-// Laundry / half bath / stair proxies, deliberate circulation breaks.
-B(m,-20,10,10,2.7,3,2.7,0xe1e3df);B(m,-17,10,10,2.7,3,2.7,0xe1e3df);for(let x of [-20,-17]){let a=C(m,x,11.5,11.4,.8,.1,0x454d50);a.rotation.x=Math.PI/2;}label(m,'Laundry / half bath',-18,15,11,1.8);
-for(let i=0;i<13;i++)B(m,-1+i*.48,10+i*.75,11, .5,.75,3.2,wood);label(m,'Stairs · approximate',1,16,12,1.5);label(m,'MAIN · nightclub lounge',-12,18,5,2.3);
-// Gable ceiling/roof toggled independently to preserve cutaway views.
+// Shared walkthrough topology replaces the old photo-inferred house entirely.
+const L=window.DEAL_LAYOUT, O={x:24,z:18};
 function roof(g,x,y,z,w,d,rise,color){const q=new THREE.Group();g.add(q);for(const s of [-1,1]){const len=Math.hypot(w/2,rise),o=B(q,x+s*w/4,y+rise/2,z,len,.3,d,color);o.rotation.z=s*-Math.atan2(rise,w/2);}q.visible=false;roofs.push(q);return q;}
-roof(m,0,29,0,50,33,11,0x53565b);
-// Vaulted-lounge timber ridge and rafters, photo-informed but estimated.
-bar(m,[-23,25,-14],[-1,25,-14],.14,wood);
-for(const zz of [-13,-5,3]){bar(m,[-24,19,zz],[-12,28,zz],.13,wood);bar(m,[-12,28,zz],[-1,19,zz],.13,wood);}
-// Upper offices / full-room walk-in closet, layout estimated from reference and owner assignment.
-const u=groups.upper;B(u,8,19.65,-2,32,.35,26,wood);B(u,-13,19.65,11,22,.35,4,wood);B(u,8,20,-15,32,7.5,.25,wall);B(u,-8,20,-2,.22,7.5,26,wall);for(const x of [2.5,13]){partition(u,x,20,-4,.2,22,6.4);}for(const x of [-6,-2,2,6,10,14,18,22])C(u,x,20,11,.045,3.2,0x9d835c);bar(u,[-7,23.2,11],[24,23.2,11],.09,wood);desk(u,-3,20,-8);desk(u,18,20,-8);label(u,'CLARK’S OFFICE · left',-3,26,-3,2);label(u,'JENNY’S CLOSET · middle',8,26,-3,2);label(u,'JENNY’S OFFICE · end',19,26,-3,2);
-for(const x of [4,11.5]){B(u,x,20,-7,1.4,6.8,13,wood);for(let z=-12;z<=-2;z+=2)B(u,x,21.1,z,1.3,.12,1.9,0xded2c0);bar(u,[x,25,-12],[x,25,-2],.04,metal);for(let z=-11.5;z< -2;z+=.6)B(u,x,23,z,.85,1.7,.25,[0x525c6a,0xb8a48d,0x7b6162][Math.round(z*10)%3+1]||0x67717c);}B(u,8,20,-3,3.3,2.6,4,wood);B(u,8,22.6,-3,3.5,.15,4.2,0xd2c8b7);
-// Lower apartment, second kitchen and own entrance. All placements inferred.
-const lo=groups.lower;room(lo,0,0,48,30,0);partition(lo,-3,0,-5,.25,20);partition(lo,10,0,-8,.25,14);partition(lo,17,0,2,14,.25,4);rug(lo,-14,0,1,16,12,0x7c847e);
-// U sectional with two chaises, 11 × 6 placeholder. Faces TV on far wall.
-B(lo,-14,.15,3,11,1.25,3,0x353b40);B(lo,-14,1,4.3,11,1.8,.6,0x353b40);for(const x of [-18.5,-9.5]){B(lo,x,.15,1,2,1.25,6,0x353b40);B(lo,x+(x< -14?-.8:.8),.7,1,.4,1.5,6,0x2d3439);}for(let x=-17.5;x< -9;x+=2)B(lo,x,1.4,3,1.8,.2,2.1,0x50595f);B(lo,-14,0,-12.8,8,1.7,1.6,0xf0eee7);B(lo,-14,3,-14,5.5,3.1,.18,0x101822);B(lo,-14,2,-12.8,4,.22,.45,0x292c30);B(lo,-14,.9,-1.2,5,.2,2.5,glass);for(const s of [-1,1])B(lo,-14+s*2,.05,-1.2,.12,.85,1.9,gold);
-for(let x=0;x<=8;x+=2.4){B(lo,x,0,-13,2.2,2.9,2.2,wood);B(lo,x,2.9,-13,2.3,.15,2.3,0xb3b2ab);}B(lo,7,0,-9.7,2.5,5.5,2.2,0xeae9df);bed(lo,17,0,-7,4.5,6.3);bed(lo,3,0,2,4.5,6.3);desk(lo,16,0,8);B(lo,21,0,9,3,2,3,0xd6d0c5);
-// Walk-out door visibly open with a marked path.
-for(const x of [-21,-7])windowUnit(lo,x,.4,14.9,5.5,6.5);B(lo,-14,-.15,19,15,.15,8,0x99968c);label(lo,'SEPARATE WALK-OUT ENTRANCE',-14,3,17,2.2);label(lo,'LOWER APARTMENT · sectional / TV',-14,7,1,2.3);label(lo,'Second kitchen',4,6,-9,1.7);label(lo,'Guest / full bed',17,6,-6,1.7);label(lo,'Guest / desk set',8,6,5,1.7);B(lo,-21,0,11,3,6,2.5,0x3d6f8d);C(lo,-17,0,11,.9,5,0xc7c8c5);label(lo,'Mechanical / storage (inferred)',-19,7,11,1.7);label(lo,'Bath · estimated',21,6,8,1.4);
+const houseRooms={};
+for(const level of L.levels){
+ const base=groups[level.id],y=level.elevation, lines=new Map();
+ for(const r of level.rooms){
+  const g=r.kind==='garage'?groups.garage:base,cx=r.x+r.w/2-O.x,cz=r.z+r.d/2-O.z;houseRooms[r.id]={...r,g,y,cx,cz};
+  if(r.kind==='void'){label(g,'OPEN TO LIVING · illustrative',cx,y+1,cz,1.6);continue;}
+  B(g,cx,y-.25,cz,r.w,.25,r.d,r.kind==='outdoor'&&!r.id.includes('deck')?material(0x979384):r.kind==='hall'?material(0xc2b899):wood);
+  label(g,r.label,cx,y+4.8,cz,Math.min(2.1,r.w/8));
+  if(['stairs','outdoor'].includes(r.kind)){
+   if(r.id==='up'||r.id==='down')for(let i=0;i<12;i++){const sy=r.id==='down'?y-(i+1)*10/12:y+i*10/12;B(g,cx,sy,r.z-O.z+(i+.5)*r.d/12,r.w-.5,.3,r.d/12,wood);}
+   continue;
+  }
+  for(const [axis,at,a,b] of [['x',r.x,r.z,r.z+r.d],['x',r.x+r.w,r.z,r.z+r.d],['z',r.z,r.x,r.x+r.w],['z',r.z+r.d,r.x,r.x+r.w]]){
+   if(level.id==='upper'&&r.id==='balcony'&&axis==='x'&&at===22)continue;
+   const key=axis+':'+at;if(!lines.has(key))lines.set(key,{axis,at,spans:[],g});lines.get(key).spans.push([a,b]);
+  }
+ }
+ for(const {axis,at,spans,g} of lines.values()){
+  spans.sort((a,b)=>a[0]-b[0]);const merged=[];for(const [a,b]of spans){const last=merged[merged.length-1];if(last&&a<=last[1])last[1]=Math.max(last[1],b);else merged.push([a,b]);}
+  const gaps=level.links.filter(l=>l.axis===axis&&l.at===at);
+  for(const [a,b]of merged){let pieces=[[a,b]];for(const gap of gaps)pieces=pieces.flatMap(([l,r])=>gap.end<=l||gap.start>=r?[[l,r]]:[[l,Math.max(l,gap.start)],[Math.min(r,gap.end),r]].filter(([l,r])=>r-l>.02));
+   for(const [l,r]of pieces){const c=(l+r)/2;B(g,axis==='x'?at-O.x:c-O.x,y,axis==='x'?c-O.z:at-O.z,axis==='x'?.18:r-l,3.4,axis==='x'?r-l:.18,wall);}
+  }
+ }
+ for(const l of level.links){
+  const x=(l.axis==='x'?l.at:(l.start+l.end)/2)-O.x,z=(l.axis==='z'?l.at:(l.start+l.end)/2)-O.z,w=l.end-l.start;
+  // Gold thresholds expose actual circulation connections without invented door swings.
+  B(base,x,y+.025,z,l.axis==='x'?.45:w,.035,l.axis==='x'?w:.45,['open'].includes(l.kind)?0x77a79a:0xc39c63);
+  if(['glass','slider'].includes(l.kind))B(base,x,y,z,l.axis==='x'?.08:w,6.5,l.axis==='x'?w:.08,glass);
+ }
+ if(level.id==='upper'){
+  for(let z=0;z<=48;z+=2)B(base,22-O.x,y,z-O.z,.08,3,.08,metal);
+  bar(base,[22-O.x,y+3,-O.z],[22-O.x,y+3,48-O.z],.07,gold);
+ }
+}
+const m=groups.main,u=groups.upper,lo=groups.lower;
+const R=id=>houseRooms[id];
+// Proposed furniture is deliberately separate from observed architectural topology.
+let r=R('living');rug(m,r.cx,10,r.cz,16,12,0x2c2634);piano(m,r.cx-4,10,r.cz-2);chair(m,r.cx+4,10,r.cz,Math.PI);chair(m,r.cx+4,10,r.cz+4,2.4);bench(m,r.cx,10,r.cz+5);B(m,r.cx,10,-17.4,7,11,1,stone);label(m,'STONE FIREPLACE · wall position estimated',r.cx,22,-17,1.7);light(m,r.cx,16,r.cz,0xffb352,2);light(m,r.cx+5,15,r.cz+2,0xbd78ff,1);
+r=R('kitchen');B(m,r.cx,10,r.cz,7,3,3,wood);B(m,r.cx,13,r.cz,7.2,.18,3.2,0xbdbcb3);for(let x=-4;x<=4;x+=2)B(m,r.cx+x,10,r.z-O.z+1,1.8,3,2,wood);
+r=R('dining');B(m,r.cx,12.3,r.cz,6,.2,3,wood);chair(m,r.cx,10,r.cz+3);chair(m,r.cx,10,r.cz-3,Math.PI);
+r=R('primary');bed(m,r.cx,10,r.cz,6.3,6.6);label(m,'Vaulted suite / skylight observed',r.cx,18,r.cz,1.6);
+r=R('laundry');for(let x of [-2,1])B(m,r.cx+x,10,r.cz,2.6,3,2.6,0xd9dfdf);B(m,r.cx+4,10,r.cz,2.3,3,2.4,wood);
+for(const id of ['primarybath','powder','upperbath','lowerbath']){r=R(id);B(r.g,r.cx,r.y,r.cz,2.5,2,2.6,0xe3e5e2);B(r.g,r.cx-2,r.y,r.cz-2,2,2.5,1.6,wood);}
+for(const id of ['east','west']){r=R(id);desk(r.g,r.cx,r.y,r.cz);label(r.g,id==='east'?'PROPOSED: CLARK’S OFFICE':'PROPOSED: JENNY’S OFFICE',r.cx,r.y+7,r.cz,1.7);}
+r=R('center');for(const x of [r.x+1,r.x+r.w-1]){B(u,x-O.x,20,r.cz,1.5,6.5,r.d-1,wood);bar(u,[x-O.x,25,r.z+1-O.z],[x-O.x,25,r.z+r.d-1-O.z],.05,metal);}label(u,'PROPOSED: JENNY’S CLOSET',r.cx,27,r.cz,1.8);
+r=R('lowerliving');rug(lo,r.cx,0,r.cz,16,12,0x7c847e);B(lo,r.cx,0,r.cz+3,11,1.4,3,0x353b40);B(lo,r.cx,1,r.cz+4,11,1.4,.6,0x353b40);B(lo,r.cx-4.5,0,r.cz+1,2,1.4,6,0x353b40);B(lo,r.cx,2.5,r.z-O.z+.6,5.5,3,.15,0x101822);
+for(const id of ['bed1','bed2']){r=R(id);bed(lo,r.cx,0,r.cz,4.5,6.3);}
+r=R('kitchenette');for(let x=-4;x<=4;x+=2.5){B(lo,r.cx+x,0,r.z-O.z+1,2.3,2.9,2,wood);B(lo,r.cx+x,2.9,r.z-O.z+1,2.4,.15,2.1,0xc4c3b6);}B(lo,r.cx+5,0,r.cz,2.5,5.5,2.2,0xd5d6d2);
+r=R('mechanical');C(lo,r.cx,0,r.cz,.9,5,0xc7c8c5);B(lo,r.cx-3,0,r.cz,2.4,4,2,0x3d6f8d);
+label(m,'WALKTHROUGH TOPOLOGY · ALL LENGTHS ESTIMATED',6,28,35,3.5);
+roof(m,7,29,5,66,65,8,0x53565b);
 // Attached 2.5-car garage per seller sheet and generic vehicle envelopes.
 function car(g,x,y,z,type,color){const q=new THREE.Group();q.position.set(x,y,z);g.add(q);const van=type==='van',len=van?24.5:(type==='sport'?15:15.8),wid=van?6.65:6.5,hei=van?9.5:5.4;B(q,0,y===0?.75:.75,0,wid,van?5.8:1.5,len,material(color,null,[1,1],.28,.65));B(q,0,van?6.4:2.2,van?-2:-.4,wid*.9,van?2.35:2,len*(van?.73:.55),material(color,null,[1,1],.3,.5));const wind=B(q,0,van?6.7:2.5,len*(van?.32:.28)+.1,wid*.84,van?1.8:1.4,.1,glass);wind.rotation.x=van?-.12:-.4;for(const s of [-1,1]){B(q,s*wid*.46,van?6.8:2.5,-1,.08,van?1.7:1.2,len*.4,glass);for(const t of [-1,1]){const wheel=C(q,s*(wid/2),.4,t*len*.31,van?1.25:1.05,.6,0x101214);wheel.rotation.z=Math.PI/2;wheel.position.y=1.25;const hub=C(q,s*(wid/2+.32),.4,t*len*.31,.58,.05,0xa0a3a4);hub.rotation.z=Math.PI/2;hub.position.y=1.25;}}B(q,0,1.2,len/2+.06,wid*.85,.6,.1,0xe7e4cc);if(van){B(q,0,8.75,-3,4,.35,6,0x252b30);B(q,0,8.75,6,4,.35,5,0x252b30);B(q,-3.7,7,0,.15,.25,15,metal);}return q;}
-const ga=groups.garage;room(ga,40,0,24,24,10);car(ga,34,10,0,'suv',0xd0d3d6);car(ga,45,10,0,'suv',0x6e747a);label(ga,'TESLA MODEL Y',34,17,4,1.8);label(ga,'JENNY’S CADILLAC XT5',46,17,4,2);label(ga,'2.5-CAR GARAGE · dimensions estimated',40,22,-7,3);roof(ga,40,19,0,26,26,5,0x55585e);
+const ga=groups.garage;let gr=R('garage');car(ga,gr.cx-5,10,gr.cz,'suv',0xd0d3d6);car(ga,gr.cx+5,10,gr.cz,'suv',0x6e747a);label(ga,'MODEL Y + JENNY’S XT5 · proposed, fit unverified',gr.cx,18,gr.cz,2.7);
 // Front 30 × 40 per seller sheet; conflicts with MLS 35 × 40. BOTH sliding + overhead doors.
 function barnShell(g,x,z,w,d,ceiling=10){B(g,x,-.2,z,w,.2,d,0x9a9b96);B(g,x,0,z-d/2,w,ceiling,.22,ply);B(g,x-w/2,0,z,.22,ceiling,d,ply);for(let a=-w/2+1;a<w/2;a+=6)for(let t of [-1,1])B(g,x+a,0,z+t*(d/2-.3),.2,ceiling,.25,wood);for(let j=0;j<5;j++)bar(g,[x-w/2,ceiling,z-d/2+j*d/4],[x,ceiling+5,z-d/2+j*d/4],.13,wood);roof(g,x,ceiling,z,w+1,d+1,5,0x71787b);}
 const fr=groups.front;barnShell(fr,-45,55,30,40,12);car(fr,-55,0,54,'van',0x8e979c);car(fr,-45,0,55,'sport',0x263d4c);car(fr,-35,0,55,'sport',0xa84c35);label(fr,'AIRSTREAM · 24X 4x4',-55,11,59,2);label(fr,'PORSCHE · wishlist',-45,7,63,1.8);label(fr,'MUSTANG · owned',-35,7,63,1.8);
@@ -90,35 +112,38 @@ for(let j=0;j<3;j++){B(gy,-61,1+j*1.2,-57,1.6,.12,12,metal);for(let i=0;i<8;i++)
 for(let i=0;i<6;i++){const z=-62+i*1.7;sphere(gy,-61,4.1,z,.35,0x41474a);const o=new THREE.Mesh(new THREE.TorusGeometry(.18,.045,8,16),metal);o.position.set(-61,4.55,z);gy.add(o);}for(let i=0;i<7;i++)plate(gy,-60+i*.4,1,-66,.85);for(let i=0;i<3;i++)bar(gy,[-59+i*.5,1,-74],[-59+i*.5,7,-74],.045,0xaaaaaa);for(let i=0;i<5;i++)sphere(gy,-56+i*2.1,.9,-73,.65,i%2?0x8d553b:0x263947);B(gy,-54,7,-74,2,.2,.12,0xe4c48d);
 // Cardio side: Peloton, rower, SkiErg, treadmill, benches and plyo boxes.
 function bike(x,z){bar(gy,[x,1,z-1],[x,2.8,z],.1,metal);bar(gy,[x,2.8,z],[x,1,z+1],.1,metal);for(const a of [-1,1]){const o=C(gy,x,1,z+a, .8,.14,0x41464b);o.rotation.z=Math.PI/2;}B(gy,x,2.9,z-.2,1,.15,.6,dark);B(gy,x,3.4,z+1.1,1.3,.8,.12,dark);}bike(-35.7,-67);B(gy,-35.6,.2,-61,2,.25,7,metal);C(gy,-35.6,.4,-64,.8,1.6,0x4c5359);B(gy,-35.6,.5,-60,1.3,.3,1.4,dark);B(gy,-35.6,0,-55,2.8,7,.35,metal);for(const s of [-1,1])bar(gy,[-35.6+s*.8,6,-55],[-35.6+s,3.5,-54.5],.03,0x999999);B(gy,-35.7,.15,-48,3.2,.6,6,metal);B(gy,-35.7,.8,-48,2.7,.04,5.5,dark);for(const x of [-37,-34.4])bar(gy,[x,.6,-50],[x,4,-50],.075,metal);B(gy,-35.7,4,-50,2.8,.8,.15,dark);bench(gy,-53,0,-44,4);B(gy,-59,0,-43,2.5,2,2.2,ply);B(gy,-56,0,-43,2,1.5,2,ply);B(gy,-62,0,-38,2,5,2,0xd0d2ce);
-// Normal man door and possible overhead door are specifically unverified.
-B(gy,-62.7,0,-40,.15,6.7,3,0x3e4b4f);label(gy,'MAN DOOR',-61,8,-40,1.5);label(gy,'Possible overhead door · UNVERIFIED',-38,9,-35,2.4);
+// Rear barn front face: sliding door left, man door right; second side/rear man door.
+B(gy,-61.5,0,-34.9,3,8,.18,0x889697);B(gy,-48,0,-35,.25,8,.2,metal);B(gy,-37,0,-35,3,6.7,.12,0x3e4b4f);
+label(gy,'SLIDING DOOR · LEFT',-55,10,-35,2);label(gy,'MAN DOOR · RIGHT',-37,9,-35,1.7);B(gy,-62.8,0,-65,.15,6.7,3,0x3e4b4f);label(gy,'SECOND MAN DOOR · side / rear',-63,10,-65,2);
 // Separate recovery zone: primary rear sauna + massage chair, optional plunge.
 B(gy,-48,.2,-38.7,27,.08,6.3,material(0x85745f));function sauna(g,x,y,z){const q=new THREE.Group();q.position.set(x,y,z);g.add(q);B(q,0,0,0,7,.2,6,wood);B(q,0,0,-3,7,7,.2,ply);B(q,-3.5,0,0,.2,7,6,ply);B(q,3.5,0,0,.2,7,6,ply);for(let j=0;j<15;j++)B(q,0,j*.44,-2.84,6.8,.04,.05,0x8a6743);B(q,0,1,-1.9,6,1.1,1.5,wood);B(q,0,0,-.6,6,.8,1,wood);B(q,1.6,0,2.9,3.6,6.7,.1,glass);B(q,-2.1,.3,1.5,1.4,2,1.4,metal);for(let i=0;i<8;i++)sphere(q,-2.1+(i%2)*.25,2.4,1.2+Math.floor(i/2)*.2,.2,stone);label(q,'SAUNA · dedicated heater',0,8,0,1.9);return q;}
 sauna(gy,-55,.2,-38.7);const massage=chair(gy,-43,.2,-39,Math.PI*.05,material(0x383e42));B(massage,0,.1,2.3,2.2,.8,2.1,0x383e42);label(gy,'MASSAGE / RECOVERY',-43,6,-39,2);function plunge(g,x,y,z){B(g,x,y,z,5.55,2.17,2.63,0xf3f2eb);B(g,x,y+2.18,z,4.9,.04,2,material(0x609aa5,null,[1,1],.2,.2));}
 plunge(gy,-37,.2,-39);label(gy,'Plunge · OR deck location',-37,4.5,-39,1.7);
-// Location-unverified furnace is a marked reserved zone, NOT a located appliance.
-B(gy,-59,.2,-47,5,.02,4,0x8f7049);label(gy,'DUCTED WOOD STOVE? · LOCATION UNCONFIRMED',-58,7,-46,2.6);label(gy,'REAR · 30 × 40 / 9 ft 6 in assumed',-48,17,-74,3.2);
+// Observed black stove on rear barn left wall near corner; exact offset estimated.
+B(gy,-60.5,0,-69,2.5,3,2,0x17191b);C(gy,-60.5,3,-69,.22,8,0x25292b);label(gy,'OBSERVED WOOD STOVE · exact offset estimated',-59,13,-69,2.5);label(gy,'REAR · dimensions disputed / ceiling unmeasured',-48,17,-74,3.2);
 // Deck and optional spa / sauna + outdoor plunge concept.
-const de=groups.deck;B(de,-5,9.65,21,38,.35,12,wood);for(const x of [-23,-16,-9,-2,5,12]){B(de,x,0,26.5,.3,9.7,.3,wood);B(de,x,10,26.5,.15,3,.15,wood);}bar(de,[-24,13,26.5],[14,13,26.5],.09,wood);for(let x=-23;x<=14;x+=1)B(de,x,10,26.5,.05,3,.05,wood);const spaG=new THREE.Group();de.add(spaG);B(spaG,-17,10,21,7,3,7,material(0x716457));B(spaG,-17,13.01,21,6.3,.1,6.3,material(0x79a5b2,null,[1,1],.2));for(let i=0;i<20;i++)sphere(spaG,-19+(i%5),13.13,19+Math.floor(i/5),.045,0xd5eef0);const deckSauna=sauna(de,-17,10,21);deckSauna.visible=false;const deckPlunge=new THREE.Group();de.add(deckPlunge);plunge(deckPlunge,-8.5,10,21);label(de,'DECK: 220V reported · structural review required',-5,16,26,3);label(de,'Hot tub OR sauna + optional plunge',-13,15.5,20,2.4);B(de,7,12.2,21,6,.18,3,wood);chair(de,5,10,23);chair(de,9,10,23);for(let i=0;i<13;i++)B(de,16,9.3-i*.72,26+i*.45,3,.3,.5,wood);
+const de=groups.deck,dr=R('sidedeck');label(de,'LARGE WRAPAROUND DECK · via dining / patio',34,17,-22,2.6);
+const spaG=new THREE.Group();de.add(spaG);B(spaG,dr.cx-2,10,dr.cz,6,2.5,6,0x716457);B(spaG,dr.cx-2,12.5,dr.cz,5.5,.1,5.5,glass);
+const deckSauna=sauna(de,dr.cx-2,10,dr.cz);deckSauna.visible=false;const deckPlunge=new THREE.Group();de.add(deckPlunge);plunge(deckPlunge,dr.cx+3.5,10,dr.cz);label(de,'220V reported · loads / fit NOT verified',dr.cx,19,dr.cz,2.5);
 const views={
-site:{name:'Property overview',pos:[155,145,190],target:[-12,4,2],show:['site','main','upper','lower','garage','front','gym','deck'],text:'House and barns shown diagrammatically, not surveyed. Seller sheet: both barns 30 × 40 ft; MLS says 30 × 40 + 35 × 40 ft, unresolved. Front 12 ft / rear 9 ft 6 in ceiling assignment assumed. Horse corral, Generac 10 kW generator and 817 ft paved road shown schematically, positions unverified.'},
-lounge:{name:'Main-floor nightclub lounge',pos:[-1,22,20],target:[-13,12.5,-5],show:['main'],night:true,text:'Steinway B + two cigar chairs + tufted bench + mirrored art panel. Stone fireplace retained; amber and violet club-light concept. Main level only for visibility.'},
-main:{name:'Main level + primary suite',pos:[48,57,62],target:[5,10,0],show:['main','garage','deck'],text:'Primary suite on main. Lounge, kitchen/dining, laundry, attached 2.5-car garage and deck; plan and moving paths are estimated.'},
-primary:{name:'Main-level primary suite',pos:[32,28,17],target:[17,11,-4],show:['main'],text:'Primary suite on MAIN floor. Furniture proxies and adjacent private bath are conceptual. Dimensions from listing, not a measured plan.'},
-kitchen:{name:'Kitchen + dining',pos:[20,24,20],target:[4,11,-4],show:['main'],text:'Existing granite / stainless / bar-seating kitchen retained, with dining. Cabinet, appliance and circulation geometry estimated from photographs.'},
-upper:{name:'Upstairs offices + full-room closet',pos:[22,40,26],target:[8,20,-2],show:['upper'],text:'Left: Clark’s office. Middle: Jenny’s walk-in closet room. Other end: Jenny’s office. Room arrangement, stairs and openings remain approximate.'},
-lower:{name:'Lower apartment + sectional',pos:[23,30,39],target:[0,0,1],show:['lower'],text:'Own exterior entrance, second kitchen, two guest bedrooms and bath. Florida sectional, TV/console, full bed and desk set. Legal apartment/rental status not verified.'},
+site:{name:'Property overview',pos:[155,145,190],target:[-12,4,2],show:['site','main','upper','lower','garage','front','gym','deck'],text:'House room connections follow walkthrough evidence; all lengths estimated. Barn and site geometry is diagrammatic, not surveyed. Seller sheet: both barns 30 × 40 ft; MLS says 30 × 40 + 35 × 40 ft, unresolved. Front 12 ft / rear 9 ft 6 in ceiling assignment assumed. Horse corral, Generac 10 kW generator and 817 ft paved road shown schematically, positions unverified.'},
+lounge:{name:'Main-floor nightclub lounge',pos:[10, 35, 16],target:[-13, 12, -9],show:['main'],night:true,text:"Observed vaulted living with stone fireplace and open stairs. Proposed Steinway B and cigar-chair lounge. Exact wall positions and furniture fit remain unmeasured."},
+main:{name:'Main level + primary suite',pos:[83, 92, 105],target:[5, 10, 12],show:['main','garage','deck'],text:"Walkthrough topology: dining → kitchen → living; service hall connects primary suite, pantry, closet, laundry, half bath, mudroom and garage. Primary entry is off the hall, not directly off living. Stair handedness remains unverified."},
+primary:{name:'Main-level primary suite',pos:[-35, 42, 30],target:[-13, 10, 8],show:['main'],text:"Main-floor primary suite entered from the service hallway, with private shower bath, vaulted ceiling and skylight. Drawn dimensions and precise wall alignment are estimates."},
+kitchen:{name:'Kitchen + dining',pos:[35, 40, 12],target:[10, 10, -11],show:['main'],text:"Patio sliding entry → dining/sunroom → kitchen with island → living. These are open connections. Cabinets and appliance positions are schematic."},
+upper:{name:'Upstairs offices + full-room closet',pos:[50, 80, 75],target:[-8, 20, 6],show:['upper'],text:"Independent balcony-hall doors in walkthrough order: east room / Clark office, full bath, center / Jenny closet, west room / Jenny office. Hall overlooks living; speaker-stated compass names are not surveyed. Stair registration unverified."},
+lower:{name:'Lower apartment + sectional',pos:[70, 70, 80],target:[8, 0, 0],show:['lower'],text:"Stair landing → right to living / covered patio; left to bedroom corridor → kitchenette at its end → mechanical room. Bath connects to hall and bedroom 1 only. Kitchenette has separate side-yard exit. Not a verified legal independent dwelling."},
 front:{name:'Front vehicle barn',pos:[-16,29,96],target:[-46,3,54],show:['front'],text:'Front modeled 30 × 40 ft per seller sheet (MLS dimensional conflict unresolved); 12 ft ceiling assignment assumed. Overhead AND sliding barn doors. 2022 Airstream Interstate 24X 4x4 on 2021 Mercedes Sprinter 3500 chassis + Porsche (wishlist) + owned Mustang. Owner confirms sliding-door clearance; ceiling assignment and door height require confirmation. Exact vehicle geometry is estimated.'},
-gym:{name:'Rear CrossFit box',pos:[-13,31,-20],target:[-49,3,-57],show:['gym'],text:'Assumed 9 ft 6 in ceiling limits rope climbs and high overhead work; verify working clearances. 30 × 40 ft insulated / plywood-lined CrossFit box: four-station rig, weights, sled turf, cardio, benches and boxes. Proposed new rig/gear mixed with Florida equipment. Door locations and clearances need measurement.'},
-recovery:{name:'Rear recovery + furnace question',pos:[-54,15,-22],target:[-48,3,-40],show:['gym'],text:'Rear sauna + massage chair; plunge can stay here OR move to the house deck. Previously described furnace is likely the ducted wood stove heating system; house/barn location unconfirmed. Marked zone is a placeholder only. Sauna uses a dedicated heater, no assumed furnace connection.'},
-deck:{name:'Deck spa alternatives',pos:[-48,39,59],target:[-8,11,21],show:['deck','main'],text:'Owner reports 220V. Hot tub OR deck sauna + optional cold plunge. Deck load capacity and electrical suitability are unverified; no installation approval implied.'},
-garage:{name:'2.5-car garage · Tesla + Cadillac',pos:[65,37,33],target:[40,12,0],show:['garage'],text:'2023 Tesla Model Y + Jenny’s Cadillac XT5, in an estimated 24 × 24 envelope; seller sheet calls garage 2.5-car. Clark does not own the Cadillac. Actual parking / door clearances unverified.'}
+gym:{name:'Rear CrossFit box',pos:[-13,31,-20],target:[-49,3,-57],show:['gym'],text:'Seller ceiling 9 ft 6 in versus narrator estimate 10 ft; unresolved and not measured. Truss / rig / ring capacity NOT verified. 30 × 40 ft insulated / plywood-lined CrossFit box: four-station rig, weights, sled turf, cardio, benches and boxes. Proposed new rig/gear mixed with Florida equipment. Sliding door left and man door right on front face; second man door on side/rear. Exact dimensions and clearances need measurement.'},
+recovery:{name:'Rear recovery + observed stove',pos:[-54,15,-22],target:[-48,3,-40],show:['gym'],text:'Rear sauna + massage chair; plunge can stay here OR move to the house deck. A black wood stove is observed by the rear barn left wall near a corner. It is NOT established as the seller-sheet ducted heating system. Exact offset, operation and clearances are unverified. Sauna uses a dedicated heater, no assumed furnace connection.'},
+deck:{name:'Deck spa alternatives',pos:[55, 50, 75],target:[10, 10, 35],show:['deck','main'],text:"Exterior includes a large wraparound deck reached outside via dining / stone patio, plus a side-deck option. Living has NO deck door. Recessed service corner is schematic; exact alignment unverified. Owner-reported 220V is not circuit verification. Hot tub OR sauna and optional plunge are proposals; dimensions, load capacity, clearances and electrical suitability require professional review."},
+garage:{name:'2.5-car garage · Tesla + Cadillac',pos:[65, 50, 85],target:[28, 10, 38],show:['garage'],text:"Attached garage connects to mudroom. Proposed Model Y and Jenny’s Cadillac XT5; seller calls garage 2.5-car. Drawn envelope and vehicle clearances are estimates, not fit guarantees."}
 };
 const sel=document.getElementById('view');for(const [k,v] of Object.entries(views)){const op=document.createElement('option');op.value=k;op.textContent=v.name;sel.append(op);}
 function setNight(n){night=n;amb.intensity=n?.25:.9;sun.intensity=n?.15:1.4;scene.background.set(n?0x17202d:0xb7ccd2);renderer.toneMappingExposure=n?1.25:1.12;clubLights.forEach(p=>p.intensity=(n?1:.32)*p.userData.power);}
 clubLights.forEach(p=>p.userData.power=p.intensity);
 function jump(k){const v=views[k]||views.site;current=k;sel.value=k;Object.entries(groups).forEach(([name,g])=>g.visible=v.show.includes(name));camera.position.set(...v.pos);controls.target.set(...v.target);controls.update();setNight(!!v.night);document.getElementById('viewtitle').textContent=v.name;document.getElementById('caption').textContent=v.text;labels.forEach(s=>s.visible=showLabels);roofs.forEach(q=>q.visible=roofOn);return true;}
-window.deal={jump,views,renderer,scene,camera,controls,groups,setLabels:(v)=>{showLabels=v;labels.forEach(l=>l.visible=v)},setRoof:(v)=>{roofOn=v;roofs.forEach(l=>l.visible=v)}};window.setView=jump;
+window.deal={layout:L,houseRooms,jump,views,renderer,scene,camera,controls,groups,setLabels:(v)=>{showLabels=v;labels.forEach(l=>l.visible=v)},setRoof:(v)=>{roofOn=v;roofs.forEach(l=>l.visible=v)}};window.setView=jump;
 sel.onchange=()=>jump(sel.value);document.getElementById('labels').onclick=()=>{showLabels=!showLabels;labels.forEach(x=>x.visible=showLabels);};document.getElementById('night').onclick=()=>setNight(!night);document.getElementById('roof').onclick=()=>{roofOn=!roofOn;roofs.forEach(x=>x.visible=roofOn);};document.getElementById('spa').onchange=e=>{spaG.visible=e.target.value==='hot';deckSauna.visible=e.target.value==='sauna';deckPlunge.visible=e.target.value!=='none';};document.getElementById('full').onclick=()=>document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();document.getElementById('walk').onclick=()=>{walking=!walking;document.getElementById('walk').textContent=walking?'Orbit mode':'Walk mode';controls.maxPolarAngle=walking?Math.PI*.65:Math.PI*.49;};
 let idx=0;document.getElementById('tour').onclick=()=>{if(tourTimer){clearInterval(tourTimer);tourTimer=null;document.getElementById('tour').textContent='▶ Tour';return;}const keys=Object.keys(views);idx=0;jump(keys[0]);tourTimer=setInterval(()=>jump(keys[(++idx)%keys.length]),6500);document.getElementById('tour').textContent='■ Stop tour';};
 const keys={};onkeydown=e=>{if(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight','w','a','s','d'].includes(e.key)){keys[e.key]=true;if(walking)e.preventDefault();}};onkeyup=e=>keys[e.key]=false;onresize=()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);};let last=performance.now();function tick(){requestAnimationFrame(tick);const now=performance.now(),dt=Math.min(.05,(now-last)/1000);last=now;if(walking){const f=controls.target.clone().sub(camera.position);f.y=0;f.normalize();const r=new THREE.Vector3().crossVectors(f,new THREE.Vector3(0,1,0));const dir=new THREE.Vector3();if(keys.w||keys.ArrowUp)dir.add(f);if(keys.s||keys.ArrowDown)dir.sub(f);if(keys.a||keys.ArrowLeft)dir.sub(r);if(keys.d||keys.ArrowRight)dir.add(r);dir.multiplyScalar(dt*12);camera.position.add(dir);controls.target.add(dir);}controls.update();renderer.render(scene,camera);}jump(new URLSearchParams(location.search).get('view')||'site');if(new URLSearchParams(location.search).has('render'))document.body.classList.add('render');tick();window.MODEL_READY=true;
