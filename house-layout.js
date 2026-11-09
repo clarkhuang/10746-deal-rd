@@ -1,6 +1,6 @@
 /* Shared source for 2D and 3D. Listing dimensions where given; other sizes approximate (flagged). */
 (function(root){const data={
- "version": "2026-11-09-house-v4.1",
+ "version": "2026-11-09-house-v4.2",
  "status": "Listing room dimensions + still-verified door relationships; unlisted sizes approximate",
  "units": "feet",
  "north": "-Z in 3D; up in plans. Lakes are north (owner).",
@@ -11,7 +11,7 @@
   "Fireplace is on the living room’s west wall; open stair rises south along its east side.",
   "Hall south end (owner, Nov 9): walking south from the primary suite, the half bath is the last door on the right (west), just before a T at the garage door; at the T, left (east) is the door to the small side deck and right (west) is the door toward the front of the house. This T is the area earlier called a mudroom — no separate mudroom room.",
   "Garage opens directly to the main hall. No extra service room between.",
-  "Upstairs: bath straight ahead of the stair arrival; east and west rooms are at the ends; middle room shares the bath’s south wall; rail on the north side.",
+  "Upstairs (owner, Nov 9): west room, middle room, bathroom and east room sit roughly in one row; west and east rooms are about the same size; one long hall from the stair landing connects all four, with the open-to-below over the living room on the hall’s north side (rail). Bath stays straight ahead of the stair arrival (stills).",
   "Lower level: wooden door from lower living to bedroom 1; bath has two doors (bedroom 1 and hall); hall opens wide to living; two exterior exits.",
   "Orange dashed outlines or doors mark items whose size, position or identity is not verified.",
   "Upper bedroom listing numbers (Bedroom 2/3/4) are not confirmed for east/middle/west."
@@ -127,16 +127,6 @@
      "uncertain": "Size not listed"
     },
     {
-     "id": "eaststore",
-     "label": "Unassigned",
-     "x": 26.4167,
-     "z": 31,
-     "w": 10,
-     "d": 6,
-     "kind": "room",
-     "uncertain": "Space east of hall between laundry and the side-deck door; use not observed"
-    },
-    {
      "id": "powder",
      "label": "Half bath",
      "x": 17.9167,
@@ -193,9 +183,9 @@
      "id": "sidedeck",
      "label": "Small side deck",
      "x": 26.4167,
-     "z": 37,
+     "z": 31,
      "w": 10,
-     "d": 8,
+     "d": 10,
      "kind": "outdoor",
      "use": "220V reported · spa options",
      "uncertain": "Deck position / size approximate",
@@ -474,10 +464,10 @@
     },
     {
      "id": "balcony",
-     "label": "Balcony hall · rail N",
-     "x": 10,
+     "label": "Long upper hall · rail N",
+     "x": 0,
      "z": 17,
-     "w": 9.9167,
+     "w": 19.9167,
      "d": 3.5,
      "kind": "hall",
      "open": [
@@ -486,27 +476,38 @@
      "uncertain": "Hall width not listed"
     },
     {
+     "id": "upperhall",
+     "label": "Upper hall (east)",
+     "x": 22.9167,
+     "z": 17,
+     "w": 16.5833,
+     "d": 3.5,
+     "kind": "hall",
+     "uncertain": "Hall width/length not listed"
+    },
+    {
      "id": "east",
      "label": "East room",
-     "x": 22.9167,
-     "z": 8,
-     "w": 13,
-     "d": 12.5,
+     "x": 27,
+     "z": 20.5,
+     "w": 12.5,
+     "d": 13,
      "kind": "room",
      "dim": "13′ × 12′6″",
      "listingRoom": "Bedroom 2?",
      "use": "Clark’s office · desk + Aeron",
-     "uncertain": "MLS room-number mapping and footprint registration unverified"
+     "uncertain": "MLS room-number mapping unverified; drawn 12′6″ E–W so east ≈ west"
     },
     {
      "id": "upperbath",
      "label": "Full bath",
      "x": 19.5,
      "z": 20.5,
-     "w": 8,
+     "w": 7.5,
      "d": 8,
      "kind": "bath",
-     "uncertain": "Size not listed"
+     "uncertain": "Size not listed",
+     "note": "In the row between middle and east rooms, straight ahead of the stair arrival"
     },
     {
      "id": "center",
@@ -519,20 +520,20 @@
      "dim": "11′1″ × 9′6″",
      "listingRoom": "Bedroom 3?",
      "use": "Jenny’s walk-in closet",
-     "uncertain": "MLS room-number mapping and axis unverified"
+     "uncertain": "MLS room-number mapping unverified"
     },
     {
      "id": "west",
      "label": "West room",
      "x": 0,
-     "z": 17,
+     "z": 20.5,
      "w": 10,
      "d": 12.9167,
      "kind": "room",
      "dim": "12′11″ × 10′",
      "listingRoom": "Bedroom 4?",
      "use": "Jenny’s office",
-     "uncertain": "MLS room-number mapping and axis unverified"
+     "uncertain": "MLS room-number mapping unverified; drawn 10′ E–W so west ≈ east"
     }
    ],
    "windows": [],
@@ -549,13 +550,21 @@
     },
     {
      "a": "landing",
-     "b": "east",
+     "b": "balcony",
+     "axis": "x",
+     "at": 19.9167,
+     "start": 17,
+     "end": 20.5,
+     "kind": "open"
+    },
+    {
+     "a": "landing",
+     "b": "upperhall",
      "axis": "x",
      "at": 22.9167,
-     "start": 15.5,
-     "end": 18.5,
-     "kind": "door",
-     "note": "terminal east room"
+     "start": 17,
+     "end": 20.5,
+     "kind": "open"
     },
     {
      "a": "landing",
@@ -568,33 +577,34 @@
      "note": "bath straight ahead of stair arrival"
     },
     {
-     "a": "landing",
-     "b": "balcony",
-     "axis": "x",
-     "at": 19.9167,
-     "start": 17.2,
-     "end": 20.3,
-     "kind": "open"
+     "a": "balcony",
+     "b": "west",
+     "axis": "z",
+     "at": 20.5,
+     "start": 3.5,
+     "end": 6.5,
+     "kind": "door",
+     "note": "Jenny’s office"
     },
     {
      "a": "balcony",
      "b": "center",
      "axis": "z",
      "at": 20.5,
-     "start": 12,
-     "end": 15,
+     "start": 13,
+     "end": 16,
      "kind": "door",
-     "note": "same south wall as bath"
+     "note": "Jenny’s closet room"
     },
     {
-     "a": "balcony",
-     "b": "west",
-     "axis": "x",
-     "at": 10,
-     "start": 17.4,
-     "end": 20.2,
+     "a": "upperhall",
+     "b": "east",
+     "axis": "z",
+     "at": 20.5,
+     "start": 31.5,
+     "end": 34.5,
      "kind": "door",
-     "note": "terminal west room"
+     "note": "Clark’s office"
     }
    ]
   },
