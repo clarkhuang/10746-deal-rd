@@ -33,10 +33,20 @@ function render(level){
   a.push(`<text x="${cx}" y="${y}" text-anchor="middle" fill="#22333e" font-family="system-ui,sans-serif" font-size="12.5" font-weight="600">${lines.map((s,i)=>`<tspan x="${cx}" dy="${i?15:0}">${esc(s)}</tspan>`).join('')}</text>`);y+=lines.length*15-2;
   for(const [t,c,fs] of extra){const wl=wrap(t,Math.max(10,Math.floor(r.w*sc/(fs*.56))));a.push(`<text x="${cx}" y="${y}" text-anchor="middle" fill="${c}" font-family="system-ui,sans-serif" font-size="${fs}">${wl.map((s,i)=>`<tspan x="${cx}" dy="${i?12:0}">${esc(s)}</tspan>`).join('')}</text>`);y+=wl.length*12+1;}
  }
+ // proposed furniture footprints (from DEAL_LAYOUT.furniture)
+ const furn=(root.DEAL_LAYOUT&&root.DEAL_LAYOUT.furniture||[]).filter(f=>f.level===level.id);
+ for(const f of furn){const col=f.kind==='art'?'#5a6b78':f.kind==='bar'?'#8a6a3e':f.kind==='piano'?'#1a1c1e':f.kind==='sofa'?'#6d737a':'#3d2a22';
+  const dash=f.uncertain?'stroke-dasharray="4 3"':'';
+  a.push(`<g><title>${esc(f.label+(f.detail?' · '+f.detail:'')+(f.note?' · '+f.note:''))}</title><rect x="${X(f.x)}" y="${Z(f.z)}" width="${f.w*sc}" height="${f.d*sc}" fill="${col}" fill-opacity=".22" stroke="${col}" stroke-width="1.6" ${dash}/></g>`);
+  if(f.kind==='piano'){/* lid hint toward west (fireplace) */a.push(`<path d="M${X(f.x)} ${Z(f.z+f.d/2)}h${-10}" stroke="${col}" stroke-width="1.5" marker-end="url(#ar)"/><text x="${X(f.x)-4}" y="${Z(f.z+f.d/2)-4}" font-family="system-ui,sans-serif" font-size="9" fill="${col}">lid</text>`);}
+  const cx=X(f.x+f.w/2),cy=Z(f.z+f.d/2);
+  const fs=f.w*sc<40?8:9;
+  a.push(`<text x="${cx}" y="${cy+3}" text-anchor="middle" font-family="system-ui,sans-serif" font-size="${fs}" font-weight="600" fill="${col}">${esc(f.label)}</text>`);
+ }
  // scale bar + legend
  const ly=H-bottom+38;a.push(`<g font-family="system-ui,sans-serif" font-size="11" fill="#34434c"><path d="M${pad} ${ly}h${10*sc}" stroke="#22333e" stroke-width="3"/><text x="${pad}" y="${ly+16}">10 ft (drawing scale; not a measurement)</text>`);
- const items=[['#a8792f','Door',''],['#a8792f','Opening','4 3'],['#2e7f8e','Glass / slider door',''],['#3c8b99','Window',''],[UNC,'Unverified (?)','6 4']];
- items.forEach(([c,t,d],i)=>{const lx=pad+i*(W-2*pad)/5;a.push(`<path d="M${lx} ${ly+44}h28" stroke="${c}" stroke-width="4" ${d?`stroke-dasharray="${d}"`:''}/><text x="${lx+34}" y="${ly+48}">${t}</text>`);});
+ const items=[['#a8792f','Door',''],['#a8792f','Opening','4 3'],['#2e7f8e','Glass / slider door',''],['#3c8b99','Window',''],['#1a1c1e','Proposed furniture',''],[UNC,'Unverified (?)','6 4']];
+ items.forEach(([c,t,d],i)=>{const lx=pad+i*(W-2*pad)/6;a.push(`<path d="M${lx} ${ly+44}h28" stroke="${c}" stroke-width="4" ${d?`stroke-dasharray="${d}"`:''}/><text x="${lx+34}" y="${ly+48}">${t}</text>`);});
  a.push(`<text x="${pad}" y="${ly+78}" fill="#5b6870">Concept reconstruction from listing dimensions, photos and walkthrough stills. Not an as-built or measured drawing.</text></g></svg>`);
  return a.join('');
 }
