@@ -35,7 +35,7 @@ function render(level){
  }
  // proposed furniture footprints (from DEAL_LAYOUT.furniture)
  const furn=(root.DEAL_LAYOUT&&root.DEAL_LAYOUT.furniture||[]).filter(f=>f.level===level.id);
- for(const f of furn){const col=f.kind==='art'?'#5a6b78':f.kind==='bar'?'#8a6a3e':f.kind==='piano'?'#1a1c1e':f.kind==='sofa'?'#6d737a':'#3d2a22';
+ for(const f of furn){const col=f.kind==='art'?'#5a6b78':f.kind==='bar'?'#8a6a3e':f.kind==='piano'?'#1a1c1e':f.kind==='sofa'?'#6d737a':f.kind==='sauna'?'#8b5a2b':f.kind==='bath'?'#7a9e9b':f.kind==='plunge'?'#5b8fa8':'#3d2a22';
   const dash=f.uncertain?'stroke-dasharray="4 3"':'';
   a.push(`<g><title>${esc(f.label+(f.detail?' · '+f.detail:'')+(f.note?' · '+f.note:''))}</title><rect x="${X(f.x)}" y="${Z(f.z)}" width="${f.w*sc}" height="${f.d*sc}" fill="${col}" fill-opacity=".22" stroke="${col}" stroke-width="1.6" ${dash}/></g>`);
   if(f.kind==='piano'){/* lid hint toward west (fireplace) */a.push(`<path d="M${X(f.x)} ${Z(f.z+f.d/2)}h${-10}" stroke="${col}" stroke-width="1.5" marker-end="url(#ar)"/><text x="${X(f.x)-4}" y="${Z(f.z+f.d/2)-4}" font-family="system-ui,sans-serif" font-size="9" fill="${col}">lid</text>`);}
