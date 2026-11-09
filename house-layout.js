@@ -1,6 +1,6 @@
 /* Shared source for 2D and 3D. Listing dimensions where given; other sizes approximate (flagged). */
 (function(root){const data={
- "version": "2026-11-08-house-v4",
+ "version": "2026-11-09-house-v4.1",
  "status": "Listing room dimensions + still-verified door relationships; unlisted sizes approximate",
  "units": "feet",
  "north": "-Z in 3D; up in plans. Lakes are north (owner).",
@@ -9,6 +9,7 @@
   "Lakes are north (owner). The primary bedroom is east of the living room (owner).",
   "Living north glass is windows only — no door. Reach the north deck from outside via the patio side.",
   "Fireplace is on the living room’s west wall; open stair rises south along its east side.",
+  "Hall south end (owner, Nov 9): walking south from the primary suite, the half bath is the last door on the right (west), just before a T at the garage door; at the T, left (east) is the door to the small side deck and right (west) is the door toward the front of the house. This T is the area earlier called a mudroom — no separate mudroom room.",
   "Garage opens directly to the main hall. No extra service room between.",
   "Upstairs: bath straight ahead of the stair arrival; east and west rooms are at the ends; middle room shares the bath’s south wall; rail on the north side.",
   "Lower level: wooden door from lower living to bedroom 1; bath has two doors (bedroom 1 and hall); hall opens wide to living; two exterior exits.",
@@ -126,14 +127,25 @@
      "uncertain": "Size not listed"
     },
     {
-     "id": "powder",
-     "label": "Half bath",
+     "id": "eaststore",
+     "label": "Unassigned",
      "x": 26.4167,
      "z": 31,
-     "w": 5,
+     "w": 10,
      "d": 6,
+     "kind": "room",
+     "uncertain": "Space east of hall between laundry and the side-deck door; use not observed"
+    },
+    {
+     "id": "powder",
+     "label": "Half bath",
+     "x": 17.9167,
+     "z": 29.9167,
+     "w": 5,
+     "d": 7,
      "kind": "bath",
-     "uncertain": "Which side of hall is unverified"
+     "note": "Last door on the right (west) walking south, just before the T (owner)",
+     "sizeNote": "5×7 size approximate"
     },
     {
      "id": "garage",
@@ -158,13 +170,24 @@
     },
     {
      "id": "patios",
-     "label": "Stone patio (L)",
+     "label": "Front stone patio (L)",
      "x": 0,
      "z": 30.4167,
-     "w": 22.9167,
+     "w": 17.9167,
      "d": 10.5833,
      "kind": "outdoor",
      "uncertain": "Patio extent approximate"
+    },
+    {
+     "id": "frontwalk",
+     "label": "Front walk",
+     "x": 17.9167,
+     "z": 36.9167,
+     "w": 5,
+     "d": 4.0833,
+     "kind": "outdoor",
+     "note": "Outside the T’s west door, toward the front of the house",
+     "uncertain": "Outdoor extent approximate"
     },
     {
      "id": "sidedeck",
@@ -175,7 +198,8 @@
      "d": 8,
      "kind": "outdoor",
      "use": "220V reported · spa options",
-     "uncertain": "Deck position / size approximate"
+     "uncertain": "Deck position / size approximate",
+     "note": "Reached by the T’s east (left) door"
     },
     {
      "id": "wrapdeck",
@@ -329,11 +353,11 @@
      "a": "hall",
      "b": "powder",
      "axis": "x",
-     "at": 26.4167,
-     "start": 32,
+     "at": 22.9167,
+     "start": 32.5,
      "end": 35,
      "kind": "door",
-     "uncertain": "Side of hall unverified"
+     "note": "half bath · last door on right walking south"
     },
     {
      "a": "hall",
@@ -343,7 +367,7 @@
      "start": 23.2,
      "end": 26.1,
      "kind": "door",
-     "note": "garage opens directly to hall"
+     "note": "garage door at the south end of the T"
     },
     {
      "a": "dining",
@@ -356,22 +380,21 @@
     },
     {
      "a": "hall",
-     "b": "patios",
+     "b": "frontwalk",
      "axis": "x",
      "at": 22.9167,
-     "start": 36,
-     "end": 39,
+     "start": 37.4,
+     "end": 40.4,
      "kind": "glassdoor",
-     "note": "full-glass door to patio",
-     "uncertain": "Offset unverified"
+     "note": "T · west door toward front of house"
     },
     {
      "a": "garage",
-     "b": "patios",
+     "b": "frontwalk",
      "axis": "z",
      "at": 41,
-     "start": 16,
-     "end": 19,
+     "start": 18.4,
+     "end": 21.4,
      "kind": "door",
      "note": "white half-glass corner door",
      "uncertain": "Interior destination of this corner door unverified"
@@ -381,11 +404,10 @@
      "b": "sidedeck",
      "axis": "x",
      "at": 26.4167,
-     "start": 38,
-     "end": 40.5,
+     "start": 37.4,
+     "end": 40.4,
      "kind": "glassdoor",
-     "note": "half-glass door to small deck",
-     "uncertain": "Wall position approximate"
+     "note": "T · east door to small side deck"
     },
     {
      "a": "wrapdeck",
@@ -406,6 +428,15 @@
      "kind": "open",
      "note": "exterior steps",
      "uncertain": "Exterior route approximate"
+    },
+    {
+     "a": "frontwalk",
+     "b": "patios",
+     "axis": "x",
+     "at": 17.9167,
+     "start": 36.9167,
+     "end": 41,
+     "kind": "open"
     }
    ]
   },
