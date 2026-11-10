@@ -17,16 +17,16 @@ function partition(g,x,y,z,w,d,h=7){B(g,x,y,z,w,h,d,wall);}
 function windowUnit(g,x,y,z,w,h){B(g,x,y,z,w,h,.12,glass);for(const s of [-1,1])B(g,x+s*w/2,y-.1,z,.12,h+.2,.18,0xf5f0de);B(g,x,y-.1,z,w+.2,.12,.2,0xf5f0de);B(g,x,y+h,z,w+.2,.12,.2,0xf5f0de);B(g,x,y,z,.09,h,.18,0xf5f0de);}
 function chair(g,x,y,z,rot=0,m=leather){const q=new THREE.Group();q.position.set(x,y,z);q.rotation.y=rot;g.add(q);B(q,0,.7,0,2.6,.65,2.65,m);B(q,0,1.2,-1.15,2.6,2,.45,m);for(const s of [-1,1]){B(q,s*1.15,1.1,0,.38,1.1,2.6,m);for(const t of [-1,1])B(q,s*.95,0,t*.95,.16,.75,.16,gold);}return q;}
 function bench(g,x,y,z,w=4){B(g,x,y+.5,z,w,.6,1.6,leather);for(let i=0;i<7;i++)for(let j=0;j<2;j++)sphere(g,x-w*.42+i*w*.14,y+1.11,z-.4+j*.8,.05,gold);for(const s of [-1,1])B(g,x+s*(w/2-.3),y,z,.16,.5,1.1,gold);}
-function piano(g,x,y,z,rot=-Math.PI/2){const q=new THREE.Group();q.position.set(x,y,z);q.rotation.y=rot;g.add(q);const sh=new THREE.Shape();sh.moveTo(-2.42,-3.46);sh.lineTo(2.42,-3.46);sh.lineTo(2.42,0);sh.bezierCurveTo(2.3,3.6,-1.4,4,-2.15,1.9);sh.bezierCurveTo(-2.5,.8,-1.3,-.4,-2.42,-1.1);sh.closePath();const geo=new THREE.ExtrudeGeometry(sh,{depth:.5,bevelEnabled:true,bevelSegments:3,steps:1,bevelSize:.07,bevelThickness:.07});geo.rotateX(Math.PI/2);const o=new THREE.Mesh(geo,material(0x080909,null,[1,1],.16,.35));o.position.y=2.9;q.add(o);o.castShadow=true;for(const [a,b] of [[-1.9,-2.6],[1.9,-2.6],[.4,2.35]]){C(q,a,.2,b,.13,2.4,dark);sphere(q,a,.15,b,.16,gold);}B(q,0,2.55,-3.4,4.9,.25,1,0x080909);for(let i=0;i<52;i++)B(q,-2.28+i*.088,2.83,-3.6,.08,.08,.64,0xf6f2de);for(let i=0;i<36;i++)if(i%7!==2&&i%7!==6)B(q,-2.2+i*.126,2.93,-3.42,.05,.1,.35,0x050505);const lid=new THREE.Mesh(geo,material(0x111113,null,[1,1],.23,.3));lid.scale.z=.13;lid.rotation.z=-.22;lid.position.set(-.3,4.05,0);q.add(lid);bar(q,[1.65,2.9,1],[1.65,4.5,1],.055,gold);bench(q,0,0,-5,2.6);B(q,0,3.06,-2.65,1.7,.5,.07,dark);}
+function piano(g,x,y,z,rot=-Math.PI/2){const q=new THREE.Group();q.position.set(x,y,z);q.rotation.y=rot;g.add(q);const sh=new THREE.Shape();sh.moveTo(-2.42,-3.46);sh.lineTo(2.42,-3.46);sh.lineTo(2.42,0);sh.bezierCurveTo(2.3,3.6,-1.4,4,-2.15,1.9);sh.bezierCurveTo(-2.5,.8,-1.3,-.4,-2.42,-1.1);sh.closePath();const geo=new THREE.ExtrudeGeometry(sh,{depth:.5,bevelEnabled:true,bevelSegments:3,steps:1,bevelSize:.07,bevelThickness:.07});geo.rotateX(Math.PI/2);const o=new THREE.Mesh(geo,material(0x080909,null,[1,1],.16,.35));o.position.y=2.9;q.add(o);o.castShadow=true;for(const [a,b] of [[-1.9,-2.6],[1.9,-2.6],[.4,2.35]]){C(q,a,.2,b,.13,2.4,dark);sphere(q,a,.15,b,.16,gold);}B(q,0,2.55,-3.4,4.9,.25,1,0x080909);for(let i=0;i<52;i++)B(q,-2.28+i*.088,2.83,-3.6,.08,.08,.64,0xf6f2de);for(let i=0;i<36;i++)if(i%7!==2&&i%7!==6)B(q,-2.2+i*.126,2.93,-3.42,.05,.1,.35,0x050505);const lid=new THREE.Mesh(geo,material(0x111113,null,[1,1],.23,.3));lid.scale.z=.13;lid.rotation.z=-.22;lid.position.set(-.3,4.05,0);q.add(lid);bar(q,[1.65,2.9,1],[1.65,4.5,1],.055,gold);bench(q,0,0,-5,2.6);B(q,0,3.06,-2.65,1.7,.5,.07,dark);return q;}
 function desk(g,x,y,z){B(g,x,y+2.4,z,5,.12,2.4,glass);for(const s of [-1,1]){B(g,x+s*2,y,z,.12,2.4,2.2,metal);}B(g,x,y+2.55,z-.65,1.7,1,.12,dark);B(g,x,y+2.5,z+.3,1.5,.05,.5,0xcccccc);chair(g,x,y,z+2,Math.PI,metal);}
 function bed(g,x,y,z,w=5,d=6.5){B(g,x,y+.25,z,w,.75,d,0x594333);B(g,x,y+1,z,w,.65,d,0xe4dfd1);B(g,x,y+.4,z-d/2,w,3,.28,0x725b48);B(g,x,y+1.65,z+.6,w-.1,.14,d*.6,0x646e76);for(const s of [-1,1]){B(g,x+s*w*.25,y+1.65,z-d*.32,w*.4,.3,1.25,0xf6f0e1);B(g,x+s*(w/2+1.05),y,z-d*.3,1.55,1.85,1.55,wood);}}
 function plant(g,x,y,z){C(g,x,y,z,.55,1,0xb8afa0,.7);for(let i=0;i<6;i++){const a=i*2.4;bar(g,[x,y+1,z],[x+Math.cos(a)*.65,y+3.7-i*.2,z+Math.sin(a)*.65],.025,0x3a5b32);const s=sphere(g,x+Math.cos(a)*.65,y+3.3-i*.2,z+Math.sin(a)*.65,.55,0x3a6739);s.scale.set(.65,1.5,.4);}}
 function light(g,x,y,z,color,power=20){const p=new THREE.PointLight(color,power,22,2);p.position.set(x,y,z);g.add(p);clubLights.push(p);}
 // Diagrammatic site. No parcel boundary or surveyed bearing represented.
 B(groups.site,0,-1.2,0,340,1,340,material(0x84916d,'leafy_grass_diff.jpg',[30,30]));B(groups.site,10,-.4,62,150,.12,16,0x73777b);B(groups.site,-6,-.35,52,22,.12,14,0x73777b);
-for(let i=0;i<58;i++){const a=i*2.399,r=135+(i%6)*4;const x=Math.cos(a)*r,z=Math.sin(a)*r;C(groups.site,x,-1,z,.55,8,0x65503b);const tree=new THREE.Mesh(new THREE.ConeGeometry(4+(i%3),19,7),material(i%2?0x405f44:0x587342));tree.position.set(x,15,z);groups.site.add(tree);}label(groups.site,'ILLUSTRATIVE SITE · NOT A SURVEY · v4.5 compass: East Deck / lake +X, garage doors west, barns diagrammatic',0,3,125,5);
+for(let i=0;i<58;i++){const a=i*2.399,r=135+(i%6)*4;const x=Math.cos(a)*r,z=Math.sin(a)*r;C(groups.site,x,-1,z,.55,8,0x65503b);const tree=new THREE.Mesh(new THREE.ConeGeometry(4+(i%3),19,7),material(i%2?0x405f44:0x587342));tree.position.set(x,15,z);groups.site.add(tree);}label(groups.site,'ILLUSTRATIVE SITE · NOT A SURVEY · barns placed by owner-stated direction only',0,3,125,5);
 // North marker: lakes north = -Z.
-B(groups.site,0,0,-118,2,.4,22,0x1c2a33);{const t=new THREE.Mesh(new THREE.ConeGeometry(3,6,3),material(0x1c2a33));t.rotation.x=-Math.PI/2;t.position.set(0,1,-131);groups.site.add(t);}label(groups.site,'N',0,8,-134,3.4);B(groups.site,100,0,30,22,.4,2,0x1c2a33);{const t=new THREE.Mesh(new THREE.ConeGeometry(3,6,3),material(0x1c2a33));t.rotation.z=-Math.PI/2;t.position.set(113,1,30);groups.site.add(t);}label(groups.site,'E · ELK LAKE / EAST DECK',132,8,30,3.4);
+B(groups.site,0,0,-118,2,.4,22,0x1c2a33);{const t=new THREE.Mesh(new THREE.ConeGeometry(3,6,3),material(0x1c2a33));t.rotation.x=-Math.PI/2;t.position.set(0,1,-131);groups.site.add(t);}label(groups.site,'N · LAKES',0,8,-134,3.4);
 
 // Seller sheet features: positions are diagrammatic, not established by a survey.
 const sg=groups.site;
@@ -38,7 +38,7 @@ label(sg,'HORSE CORRAL · position / size estimated',-75,7,-65,3);
 label(sg,'817 ft paved road · schematic segment, not full length',10,2,72,4);
 
 // Shared walkthrough topology replaces the old photo-inferred house entirely.
-const L=window.DEAL_LAYOUT, O={x:0,z:30};
+const L=window.DEAL_LAYOUT, O={x:20,z:20};
 function roof(g,x,y,z,w,d,rise,color){const q=new THREE.Group();g.add(q);for(const s of [-1,1]){const len=Math.hypot(w/2,rise),o=B(q,x+s*w/4,y+rise/2,z,len,.3,d,color);o.rotation.z=s*-Math.atan2(rise,w/2);}q.visible=false;roofs.push(q);return q;}
 const houseRooms={};
 for(const level of L.levels){
@@ -47,7 +47,7 @@ for(const level of L.levels){
   const g=r.kind==='garage'?groups.garage:base,cx=r.x+r.w/2-O.x,cz=r.z+r.d/2-O.z;houseRooms[r.id]={...r,g,y,cx,cz};
   if(r.kind==='void'){if(r.id==='void')label(g,'OPEN TO LIVING BELOW',cx,y+1,cz,1.6);continue;}
   B(g,cx,y-.25,cz,r.w,.25,r.d,r.kind==='outdoor'&&!r.id.includes('deck')?material(0x979384):r.kind==='hall'?material(0xc2b899):wood);
-  label(g,(r.uncertain&&r.kind!=='outdoor'?'? ':'')+r.label+(r.dim?' · '+r.dim:''),cx,y+4.8,cz,Math.min(2.1,Math.max(1,r.w/8)));
+  if(r.id!=='living')label(g,(r.uncertain&&r.kind!=='outdoor'?'? ':'')+r.label+(r.dim?' · '+r.dim:''),cx,y+4.8,cz,Math.min(2.1,Math.max(1,r.w/8)));
   if(['stairs','outdoor'].includes(r.kind)){
    // Straight flights rise toward the south (+Z) on both levels; the lower flight is stacked beneath the main one (inferred).
    if(r.kind==='stairs')for(let i=0;i<12;i++)B(g,cx,y+i*10/12,r.z-O.z+(i+.5)*r.d/12,r.w-.5,.3,r.d/12,wood);
@@ -91,66 +91,76 @@ const R=id=>houseRooms[id];
     const g=groups[f.level]||groups.main; const y=lv.elevation;
     const cx=f.x+f.w/2-O.x, cz=f.z+f.d/2-O.z;
     const h=f.kind==='tv'?3:f.kind==='art'?3.2:f.kind==='plunge'?2.2:f.kind==='bed'?1.8:f.kind==='desk'?2.5:1.4;
+    // Skip the Steinway box + its bench — the sculpted piano() mesh already includes both.
+    if(f.kind==='piano'||f.id==='piano-bench') continue;
     B(g,cx,y,cz,f.w,h,f.d,col[f.kind]||0x555555);
-    if(f.label) label(g,f.label,cx,y+h+1.2,cz,Math.min(1.6,Math.max(.9,f.w/6)));
+    // Skip labels for items that have hand-built meshes/labels — avoids stacked living-room tags.
+    if(f.label && !['piano','chair','bar','art','sofa','bench'].includes(f.kind)) label(g,f.label,cx,y+h+1.2,cz,Math.min(1.6,Math.max(.9,f.w/6)));
   }
 })();
 
-let r=R('living');rug(m,r.cx,10,r.cz,12,16,0x2c2634);
-// Piano by stair (south), across from fireplace (north wall); lid toward the fire. rot 180°: tail/lid → world −Z (north).
-piano(m,r.cx,10,r.z-O.z+r.d-6.2,Math.PI);
-label(m,'STEINWAY B · by stair · lid → fireplace',r.cx,16,r.z-O.z+r.d-6.2,1.8);
-// Cigar chairs grouped around the fireplace (north wall).
-chair(m,r.x-O.x+4.5,10,r.z-O.z+3.2,Math.PI*.2);chair(m,r.x-O.x+12.5,10,r.z-O.z+3.2,-Math.PI*.2);
-label(m,'CIGAR CHAIRS · around fireplace',r.cx,15,r.z-O.z+6,1.5);
-// Stone fireplace + bar niches (sides) and mantel bar (top of surround) on the NORTH wall.
-B(m,r.cx,10,r.z-O.z+.6,7,11,1.2,stone);
-B(m,r.x-O.x+2.2,10,r.z-O.z+.7,2.2,6,1.1,wood);B(m,r.x-O.x+14.8,10,r.z-O.z+.7,2.2,6,1.1,wood);
-B(m,r.cx,18.2,r.z-O.z+.75,4.2,.35,1.0,wood);for(let i=0;i<5;i++)C(m,r.cx-1.6+i*.8,18.7,r.z-O.z+.75,.12,.55,0xc9c3b0,.08);
-label(m,'STONE FIREPLACE · bar niches + mantel',r.cx,22,r.z-O.z+2.4,1.7);
+let r=R('living');rug(m,r.cx,10,r.cz,16,12,0x2c2634);
+// Steinway B: keyboard/bench north (windows), tail south, lid/treble west toward the fireplace.
+// rot=0 keeps local −Z keys at world north; scale.x=-1 puts treble/lid on the player's right (west).
+{const pf=(L.furniture||[]).find(f=>f.id==='steinway');
+ const px=pf?(pf.x+pf.w/2-O.x):(r.x-O.x+15), pz=pf?(pf.z+pf.d/2-O.z):(r.z-O.z+8.5);
+ const pq=piano(m,px,10,pz,0); pq.scale.x=-1;
+ label(m,'STEINWAY B · keys N · tail S · lid → fireplace (W)',px,17.5,pz,1.7);}
+// Cigar chairs grouped around the fireplace (west wall).
+chair(m,r.x-O.x+2.9,10,r.z-O.z+4.3,Math.PI*.55);chair(m,r.x-O.x+2.9,10,r.z-O.z+12.7,-Math.PI*.55);
+label(m,'CIGAR CHAIRS · around fireplace',r.x-O.x+8.5,15,r.cz,1.5);
+// Stone fireplace + bar niches (sides) and mantel bar (top of surround).
+B(m,r.x-O.x+.6,10,r.cz,1.2,11,7,stone);
+B(m,r.x-O.x+.7,10,r.z-O.z+1.5,1.1,6,2.2,wood);B(m,r.x-O.x+.7,10,r.z-O.z+15.5,1.1,6,2.2,wood);
+B(m,r.x-O.x+.75,18.2,r.cz,1.0,.35,4.2,wood);for(let i=0;i<5;i++)C(m,r.x-O.x+.75,18.7,r.cz-1.6+i*.8,.12,.55,0xc9c3b0,.08);
+label(m,'STONE FIREPLACE · bar niches + mantel',r.x-O.x+4.2,22,r.z-O.z+4.5,1.6);
 // Mirrored mosaic panel (~4 ft): preferred on chimney breast above mantel bar.
-B(m,r.cx,19.2,r.z-O.z+.35,4.0,3.2,0.18,0x1a1c1e);for(let i=0;i<8;i++)for(let j=0;j<6;j++)B(m,r.cx-1.7+i*.48,19.5+j*.45,r.z-O.z+.4,.2,.2,.06,0x9aa3a8);
-label(m,'MIRRORED MOSAIC PANEL · chimney breast (proposed)',r.cx,24,r.z-O.z+3.5,1.6);
+B(m,r.x-O.x+.35,19.2,r.cz,0.18,3.2,4.0,0x1a1c1e);for(let i=0;i<8;i++)for(let j=0;j<6;j++)B(m,r.x-O.x+.4,19.5+j*.45,r.cz-1.7+i*.48,.06,.2,.2,0x9aa3a8);
+label(m,'MIRRORED MOSAIC PANEL · chimney breast (proposed)',r.x-O.x+6.5,25,r.z-O.z+14.5,1.5);
 light(m,r.cx,16,r.cz,0xffb352,2);light(m,r.cx+5,15,r.cz+2,0xbd78ff,1);
 r=R('kitchen');B(m,r.cx,10,r.cz,7,3,3,wood);B(m,r.cx,13,r.cz,7.2,.18,3.2,0xbdbcb3);for(let x=-4;x<=4;x+=2)B(m,r.cx+x,10,r.z-O.z+1,1.8,3,2,wood);
 r=R('dining');B(m,r.cx,12.3,r.cz,6,.2,3,wood);chair(m,r.cx,10,r.cz+3);chair(m,r.cx,10,r.cz-3,Math.PI);
 r=R('primary');bed(m,r.cx,10,r.cz,6.3,6.6);label(m,'Vaulted suite / skylight observed',r.cx,18,r.cz,1.6);
 r=R('laundry');for(let x of [-2,1])B(m,r.cx+x,10,r.cz,2.6,3,2.6,0xd9dfdf);B(m,r.cx+4,10,r.cz,2.3,3,2.4,wood);
 for(const id of ['primarybath','powder','upperbath','lowerbath']){r=R(id);B(r.g,r.cx,r.y,r.cz,2.5,2,2.6,0xe3e5e2);B(r.g,r.cx-2,r.y,r.cz-2,2,2.5,1.6,wood);}
-for(const id of ['south','north']){r=R(id);desk(r.g,r.cx,r.y,r.cz);label(r.g,id==='south'?'PROPOSED: CLARK’S OFFICE':'PROPOSED: JENNY’S OFFICE',r.cx,r.y+7,r.cz,1.7);}
+for(const id of ['east','west']){r=R(id);desk(r.g,r.cx,r.y,r.cz);label(r.g,id==='east'?'PROPOSED: CLARK’S OFFICE':'PROPOSED: JENNY’S OFFICE',r.cx,r.y+7,r.cz,1.7);}
 r=R('center');for(const x of [r.x+1,r.x+r.w-1]){B(u,x-O.x,20,r.cz,1.5,6.5,r.d-1,wood);bar(u,[x-O.x,25,r.z+1-O.z],[x-O.x,25,r.z+r.d-1-O.z],.05,metal);}label(u,'PROPOSED: JENNY’S CLOSET',r.cx,27,r.cz,1.8);
 r=R('lowerliving');rug(lo,r.cx,0,r.cz,16,12,0x7c847e);
-// Large Florida sectional in lower living, facing east windows / TV wall.
+// Large Florida sectional in lower living, facing north windows / TV wall.
 B(lo,r.cx,0,r.cz+3.2,12,1.4,3.2,0x6d737a);B(lo,r.cx,1.0,r.cz+4.4,12,1.5,.7,0x6d737a);B(lo,r.cx-5.2,0,r.cz+1.2,2.4,1.4,6.5,0x6d737a);B(lo,r.cx+5.2,0,r.cz+1.2,2.4,1.4,6.5,0x6d737a);
 B(lo,r.cx,2.5,r.z-O.z+.6,5.5,3,.15,0x101822);label(lo,'LARGE SECTIONAL · lower living',r.cx,5.5,r.cz+3.2,1.8);
 for(const id of ['bed1','bed2']){r=R(id);bed(lo,r.cx,0,r.cz,4.5,6.3);}
 r=R('kitchenette');for(let x=-4;x<=4;x+=2.5){B(lo,r.cx+x,0,r.z-O.z+1,2.3,2.9,2,wood);B(lo,r.cx+x,2.9,r.z-O.z+1,2.4,.15,2.1,0xc4c3b6);}B(lo,r.cx+5,0,r.cz,2.5,5.5,2.2,0xd5d6d2);
 r=R('mechanical');C(lo,r.cx,0,r.cz,.9,5,0xc7c8c5);B(lo,r.cx-3,0,r.cz,2.4,4,2,0x3d6f8d);
-label(m,'LISTING ROOM SIZES + WALKTHROUGH DOORS · other sizes approximate',0,30,10,3.5);
+label(groups.site,'LISTING ROOM SIZES + WALKTHROUGH DOORS · other sizes approximate',0,8,90,2.4);
 {const rs=L.levels[0].rooms.filter(r=>!['outdoor','garage'].includes(r.kind));const x0=Math.min(...rs.map(r=>r.x)),x1=Math.max(...rs.map(r=>r.x+r.w)),z0=Math.min(...rs.map(r=>r.z)),z1=Math.max(...rs.map(r=>r.z+r.d));roof(m,(x0+x1)/2-O.x,29,(z0+z1)/2-O.z,x1-x0+2,z1-z0+2,8,0x53565b);}
 // Attached 2.5-car garage per seller sheet and generic vehicle envelopes.
 function car(g,x,y,z,type,color){const q=new THREE.Group();q.position.set(x,y,z);g.add(q);const van=type==='van',len=van?24.5:(type==='sport'?15:15.8),wid=van?6.65:6.5,hei=van?9.5:5.4;B(q,0,y===0?.75:.75,0,wid,van?5.8:1.5,len,material(color,null,[1,1],.28,.65));B(q,0,van?6.4:2.2,van?-2:-.4,wid*.9,van?2.35:2,len*(van?.73:.55),material(color,null,[1,1],.3,.5));const wind=B(q,0,van?6.7:2.5,len*(van?.32:.28)+.1,wid*.84,van?1.8:1.4,.1,glass);wind.rotation.x=van?-.12:-.4;for(const s of [-1,1]){B(q,s*wid*.46,van?6.8:2.5,-1,.08,van?1.7:1.2,len*.4,glass);for(const t of [-1,1]){const wheel=C(q,s*(wid/2),.4,t*len*.31,van?1.25:1.05,.6,0x101214);wheel.rotation.z=Math.PI/2;wheel.position.y=1.25;const hub=C(q,s*(wid/2+.32),.4,t*len*.31,.58,.05,0xa0a3a4);hub.rotation.z=Math.PI/2;hub.position.y=1.25;}}B(q,0,1.2,len/2+.06,wid*.85,.6,.1,0xe7e4cc);if(van){B(q,0,8.75,-3,4,.35,6,0x252b30);B(q,0,8.75,6,4,.35,5,0x252b30);B(q,-3.7,7,0,.15,.25,15,metal);}return q;}
 const ga=groups.garage;let gr=R('garage');
 function carW(g,x,y,z,type,color){const q=car(g,x,y,z,type,color);q.rotation.y=-Math.PI/2;return q;}
-carW(ga,gr.cx,10,gr.cz-8,'suv',0xd0d3d6);carW(ga,gr.cx,10,gr.cz+8,'suv',0x6e747a);
-// Overhead doors on the WEST wall (opposite the East Deck).
-B(ga,gr.x-O.x-0.2,10,gr.cz-8,0.3,9,9,0xe8e8e6);B(ga,gr.x-O.x-0.2,10,gr.cz+8,0.3,9,9,0xe8e8e6);
+carW(ga,gr.cx,10,gr.cz-7,'suv',0xd0d3d6);carW(ga,gr.cx,10,gr.cz+7,'suv',0x6e747a);
+// Overhead doors on the WEST wall (toward Deal Rd / the drive).
+B(ga,gr.x-O.x-0.2,10,gr.cz-7,0.3,9,9,0xe8e8e6);B(ga,gr.x-O.x-0.2,10,gr.cz+7,0.3,9,9,0xe8e8e6);
 label(ga,'OVERHEAD DOORS FACE WEST · Deal Rd / front',gr.x-O.x-2,20,gr.cz,2.4);
 label(ga,'MODEL Y + JENNY’S XT5 · proposed, fit unverified',gr.cx,18,gr.cz,2.7);
 // Front 30 × 40 per seller sheet; conflicts with MLS 35 × 40. BOTH sliding + overhead doors.
 function barnShell(g,x,z,w,d,ceiling=10){B(g,x,-.2,z,w,.2,d,0x9a9b96);B(g,x,0,z-d/2,w,ceiling,.22,ply);B(g,x-w/2,0,z,.22,ceiling,d,ply);for(let a=-w/2+1;a<w/2;a+=6)for(let t of [-1,1])B(g,x+a,0,z+t*(d/2-.3),.2,ceiling,.25,wood);for(let j=0;j<5;j++)bar(g,[x-w/2,ceiling,z-d/2+j*d/4],[x,ceiling+5,z-d/2+j*d/4],.13,wood);roof(g,x,ceiling,z,w+1,d+1,5,0x71787b);}
-const fr=groups.front;fr.position.set(-130,0,-40);/* WNW of house, nearer Deal Rd / front drive; diagrammatic */barnShell(fr,-45,55,30,40,12);car(fr,-55,0,54,'van',0x8e979c);car(fr,-45,0,55,'sport',0x263d4c);car(fr,-35,0,55,'sport',0xa84c35);label(fr,'AIRSTREAM · 24X 4x4',-55,11,59,2);label(fr,'PORSCHE · wishlist',-45,7,63,1.8);label(fr,'MUSTANG · owned',-35,7,63,1.8);
+const fr=groups.front;fr.position.set(126.55,0,-108.55);/* world center (81.55,-53.55) from aerial */barnShell(fr,-45,55,30,40,12);car(fr,-55,0,54,'van',0x8e979c);car(fr,-45,0,55,'sport',0x263d4c);car(fr,-35,0,55,'sport',0xa84c35);label(fr,'AIRSTREAM · 24X 4x4',-55,11,59,2);label(fr,'PORSCHE · wishlist',-45,7,63,1.8);label(fr,'MUSTANG · owned',-35,7,63,1.8);
 // Front door lintels, open door leaves at ends, tracked sliding section.
-B(fr,-45,11,75,30,.35,.4,metal);B(fr,-58,0,75,.3,11,.3,metal);B(fr,-45,0,75,.3,11,.3,metal);B(fr,-33,0,75,.3,11,.3,metal);B(fr,-28.5,0,75,7.5,10,.15,material(0x9ba4a4,'box_profile_metal_sheet_gray.jpg',[4,1]));B(fr,-39,10,74.5,11,.2,3,0xb0b4b5);label(fr,'SLIDING SECTION · owner confirms clearance',-53,13,76,2.7);label(fr,'OVERHEAD DOOR',-38,12,76,1.8);label(fr,'FRONT BARN · WNW of house · nearer Deal Rd · 30 × 40 vs 35 × 40 unresolved · rotation unverified',-45,18,38,3.4);
+B(fr,-45,11,75,30,.35,.4,metal);B(fr,-58,0,75,.3,11,.3,metal);B(fr,-45,0,75,.3,11,.3,metal);B(fr,-33,0,75,.3,11,.3,metal);B(fr,-28.5,0,75,7.5,10,.15,material(0x9ba4a4,'box_profile_metal_sheet_gray.jpg',[4,1]));B(fr,-39,10,74.5,11,.2,3,0xb0b4b5);label(fr,'SLIDING SECTION · owner confirms clearance',-53,13,76,2.7);label(fr,'OVERHEAD DOOR',-38,12,76,1.8);label(fr,'FRONT BARN · NE of house · 30×40 working size · rotation unverified',-45,18,38,3.4);
 // Rear 30 × 40 CrossFit box, plywood lining and insulated upper perimeter.
-const gy=groups.gym;gy.position.set(110,0,130);/* true SE / back-east-south lawn; barn rotation unverified */barnShell(gy,-48,-55,30,40,9.5);B(gy,-48,.025,-55,29.7,.12,39.7,rubber);B(gy,-62.6,8,-55,.25,1.5,40,0x484f52);B(gy,-48,8,-74.6,30,1.5,.25,0x484f52);B(gy,-48,.18,-70,26,.05,4.5,0x526848);label(gy,'TURF / SLED LANE',-48,2.5,-70,2);B(gy,-39,0,-69.8,3,.3,2,metal);for(const z of [-70.5,-69.1])bar(gy,[-39,0,z],[-39,3,z],.09,metal);
+const gy=groups.gym;gy.position.set(127.26,0,256.04);/* world center (79.26,201.04) from aerial */barnShell(gy,-48,-55,30,40,9.5);B(gy,-48,.03125,-55,29.8,.0625,39.8,rubber);/* 3/4 in stall mats, full slab */B(gy,-62.6,8,-55,.25,1.5,40,0x484f52);B(gy,-48,8,-74.6,30,1.5,.25,0x484f52);
 function plate(g,x,y,z,r=.9){const o=C(g,x,y,z,r,.18,dark);o.rotation.z=Math.PI/2;o.position.y=y;return o;}
 function barbell(g,x,y,z){bar(g,[x-3.6,y,z],[x+3.6,y,z],.045,0xaeb2b5);for(const s of [-1,1])for(let i=0;i<3;i++)plate(g,x+s*(2.4+i*.2),y,z,.9);}
-// Four stations, 12 × 4 rig and operating zones.
-for(const x of [-55,-49,-43])for(const z of [-58,-54]){B(gy,x,0,z,.18,9,.18,metal);for(let h=3;h<=5;h+=1)B(gy,x,h,z,.4,.08,.5,metal);}for(const z of [-58,-54])bar(gy,[-55,8.8,z],[-43,8.8,z],.065,metal);for(const x of [-55,-49,-43])bar(gy,[x,8.8,-58],[x,8.8,-54],.065,metal);
-for(const x of [-52,-46])for(const z of [-62,-50]){B(gy,x,.18,z,7.6,.1,6,material(0x574f43));barbell(gy,x,1.1,z);}
-for(const x of [-51,-47]){bar(gy,[x,8.8,-56],[x,6,-56],.025,0x303030);const o=new THREE.Mesh(new THREE.TorusGeometry(.32,.045,8,24),gold);o.position.set(x,5.7,-56);gy.add(o);}
-label(gy,'FOUR-STATION CROSSFIT RIG',-49,12,-56,2.5);
+// Rogue Monster Lite Rig 2.0 ML-14: 14×6 ft, 8 uprights (4×2), 9 ft tall, pull-up bars at 7.5 ft, centered in the barn.
+{const cx=-48,cz=-55,halfL=7,halfW=3,xs=[-halfL,-halfL/3,halfL/3,halfL],zs=[-halfW,halfW];
+for(const x of xs)for(const z of zs){B(gy,cx+x,0,cz+z,.2,9,.2,metal);for(let h=3;h<=7;h+=1)B(gy,cx+x,h,cz+z,.45,.08,.5,metal);}
+for(const z of zs)bar(gy,[cx-halfL,7.5,cz+z],[cx+halfL,7.5,cz+z],.07,metal);
+for(const x of xs)bar(gy,[cx+x,7.5,cz-halfW],[cx+x,7.5,cz+halfW],.07,metal);
+for(const x of [-4.7,0,4.7])for(const z of [-5.5,5.5]){B(gy,cx+x,.18,cz+z,6.5,.1,6,material(0x574f43));barbell(gy,cx+x,1.1,cz+z);}
+label(gy,'ROGUE ML-14 · 14×6 · 9 ft uprights · bars at 7′6″ · 4 squat / 8 pull-up',cx,12,cz,2.6);}
+// Florida wall-mounted rack — side-wall accessory only (west wall).
+{const x=-62,z=-48;B(gy,x,0,z,.2,9,4,metal);for(const s of [-1.5,1.5]){B(gy,x,0,z+s,.18,9,.18,metal);for(let h=3;h<=7;h+=1)B(gy,x,h,z+s,.4,.08,.5,metal);}bar(gy,[x,7.5,z-1.5],[x,7.5,z+1.5],.06,metal);label(gy,'FLORIDA WALL RACK · accessory',x+4,8,z,1.8);}
 // Dumbbell / kettlebell storage, bumper plates, wall balls and bar holder.
 for(let j=0;j<3;j++){B(gy,-61,1+j*1.2,-57,1.6,.12,12,metal);for(let i=0;i<8;i++){const z=-62+i*1.5;bar(gy,[-61.5,1.25+j*1.2,z],[-60.5,1.25+j*1.2,z],.06,0xa7aaab);for(const s of [-1,1])sphere(gy,-61+s*.6,1.25+j*1.2,z,.23+j*.05,dark);}}
 for(let i=0;i<6;i++){const z=-62+i*1.7;sphere(gy,-61,4.1,z,.35,0x41474a);const o=new THREE.Mesh(new THREE.TorusGeometry(.18,.045,8,16),metal);o.position.set(-61,4.55,z);gy.add(o);}for(let i=0;i<7;i++)plate(gy,-60+i*.4,1,-66,.85);for(let i=0;i<3;i++)bar(gy,[-59+i*.5,1,-74],[-59+i*.5,7,-74],.045,0xaaaaaa);for(let i=0;i<5;i++)sphere(gy,-56+i*2.1,.9,-73,.65,i%2?0x8d553b:0x263947);B(gy,-54,7,-74,2,.2,.12,0xe4c48d);
@@ -164,9 +174,10 @@ B(gy,-48,.2,-38.7,27,.08,6.3,material(0x85745f));function sauna(g,x,y,z){const q
 sauna(gy,-55,.2,-38.7);const massage=chair(gy,-43,.2,-39,Math.PI*.05,material(0x383e42));B(massage,0,.1,2.3,2.2,.8,2.1,0x383e42);label(gy,'MASSAGE / RECOVERY',-43,6,-39,2);function plunge(g,x,y,z){B(g,x,y,z,5.55,2.17,2.63,0xf3f2eb);B(g,x,y+2.18,z,4.9,.04,2,material(0x609aa5,null,[1,1],.2,.2));}
 plunge(gy,-37,.2,-39);label(gy,'Plunge · OR deck location',-37,4.5,-39,1.7);
 // Observed black stove on rear barn left wall near corner; exact offset estimated.
-B(gy,-60.5,0,-69,2.5,3,2,0x17191b);C(gy,-60.5,3,-69,.22,8,0x25292b);label(gy,'OBSERVED WOOD STOVE · exact offset estimated',-59,13,-69,2.5);label(gy,'REAR GYM BARN · SE of house (back / east-south lawn) · size / rotation unverified',-48,17,-74,3.2);
+B(gy,-60.5,0,-69,2.5,3,2,0x17191b);C(gy,-60.5,3,-69,.22,8,0x25292b);label(gy,'OBSERVED WOOD STOVE · exact offset estimated',-59,13,-69,2.5);label(gy,'REAR GYM BARN · SE · working 30×40 · 9′6″–10′ clear · ¾″ mats whole floor · rotation unverified',-48,17,-74,3.2);
 // Deck and optional spa / sauna + outdoor plunge concept.
-const de=groups.deck,dr=R('sidedeck'),wd=R('wrapdeck');label(de,'EAST DECK · faces Elk Lake · reached from outside via patio; no living-room door',wd.cx,17,wd.cz,2.6);
+const de=groups.deck,dr=R('sidedeck'),wd=R('wrapdeck');label(de,'WRAP DECK · starts west, wraps north toward Elk Lake · no living-room door',wd.cx,17,wd.cz,2.6);
+label(de,'INSET EAST DECK · back yard · cold plunge + sauna pier',dr.cx,17,dr.cz,2.2);
 const spaG=new THREE.Group();de.add(spaG);B(spaG,dr.cx-2,10,dr.cz,6,2.5,6,0x716457);B(spaG,dr.cx-2,12.5,dr.cz,5.5,.1,5.5,glass);
 const deckSauna=sauna(de,dr.cx-2,10,dr.cz);deckSauna.visible=false;const deckPlunge=new THREE.Group();de.add(deckPlunge);plunge(deckPlunge,dr.cx+3.5,10,dr.cz);label(de,'220V reported · loads / fit NOT verified',dr.cx,19,dr.cz,2.5);
 // v4.4 house 4-person skid sauna on east pier deck (primary location; barn sauna becomes alternate recovery).
@@ -179,20 +190,20 @@ const deckSauna=sauna(de,dr.cx-2,10,dr.cz);deckSauna.visible=false;const deckPlu
  label(de,'HOUSE 4-PERSON SKID SAUNA · pier deck on slope',sr.cx,20,sr.cz,2.4);} }
 {const pd=R('saunadeck'); if(pd){B(de,pd.cx,10,pd.cz,pd.w,.2,pd.d,0x8a7355); label(de,'SAUNA PIER DECK',pd.cx,14,pd.cz,1.8);} }
 
-const VC=id=>{const r=R(id);return [r.cx,r.y,r.cz];},off=(p,d)=>[p[0]+d[0],p[1],p[2]+d[1]];const FR=[-130,-40],GY=[110,130];
+const VC=id=>{const r=R(id);return [r.cx,r.y,r.cz];},off=(p,d)=>[p[0]+d[0],p[1],p[2]+d[1]];const FR=[126.55,-108.55],GY=[127.26,256.04];
 const views={
-site:{name:'Property overview',pos:[80,180,200],target:[0,4,30],show:['site','main','upper','lower','garage','front','gym','deck'],text:'North is −Z (up in plans). The East Deck and Elk Lake are toward +X, marked “E · ELK LAKE / EAST DECK”. Garage doors face west (−X), toward Deal Rd — opposite the East Deck. Front Airstream barn is shown WNW (nearer the road); rear gym barn SE on the back lawn (photo 01 / IMG_5199 ~0:30). Distances, rotations and sizes are diagrammatic, not surveyed. Seller sheet: both barns 30 × 40 ft; MLS says 30 × 40 + 35 × 40 ft, unresolved.'},
-lounge:{name:'Main-floor nightclub lounge',pos:[VC('living')[0]+14,34,VC('living')[2]+22],target:[VC('living')[0]-2,12,VC('living')[2]-3],show:['main'],night:true,text:'Living 22′11″ × 17′ (listing). East glass (toward the East Deck / Elk Lake) is windows only — no door. Stone fireplace on the north wall; open stair rises west along the south side. Steinway B by the stair with lid toward the fireplace; cigar chairs around the fire; bar niches in the fireplace built-ins; mirrored mosaic panel proposed on the chimney breast.'},
-main:{name:'Main level + primary suite',pos:[40,110,90],target:[0,10,30],show:['main','garage','deck'],text:'North up, east to the right (East Deck / Elk Lake). Primary bedroom (17′5″ × 13′10″) is south of the living room. Main hall runs east–west between them; primary door on its south side. Kitchen 14′3″ × 12′11″ and dining 13′5″ × 8′8″ west of living; dining slider to the north stone patio. Walking west, the half bath is the last door on the right, then a T at the garage door: left (south) to the inset courtyard, right (north) toward the front. Garage doors face west. Orange “?” marks unverified items.'},
-primary:{name:'Main-level primary suite',pos:[VC('primary')[0]+18,40,VC('primary')[2]+26],target:[VC('primary')[0],10,VC('primary')[2]],show:['main'],text:'Primary bedroom 17′5″ × 13′10″ (listing), south of living, with east windows toward the East Deck / Elk Lake, entered from the main hall. Bath size and door position not listed. Paint palettes A (warm greige) / B (soft sage); tub Option A (combo, fits) vs B (soak + shower, marginal).'},
-kitchen:{name:'Kitchen + dining',pos:[VC('kitchen')[0]+12,38,VC('kitchen')[2]+26],target:[VC('kitchen')[0]-4,10,VC('kitchen')[2]],show:['main'],text:'Kitchen 14′3″ × 12′11″ open to living (east) and dining (north). Dining 13′5″ × 8′8″ with slider to the north stone patio; its axis is unverified. Cabinets are schematic.'},
-upper:{name:'Upstairs offices + closet room',pos:[30,90,80],target:[5,20,28],show:['upper'],text:'North (Jenny) and south (Clark) rooms have END-wall doors (hallway runs into them); middle closet and bath keep side-of-hall doors. Bath is straight ahead of the stair arrival. Hall rail faces east over the living void / East Deck. North and south rooms are about the same size. Upper mass sits over kitchen/dining/hall — not drawn over the primary bedroom (unverified). Listing bedroom-number mapping unverified.'},
-lower:{name:'Lower apartment + sectional',pos:[40,80,80],target:[5,0,28],show:['lower'],text:'Lower living 19′ × 16′10″ (listing) with the large sectional facing the east windows/TV; half-glass door to the covered patio under the East Deck. Wooden door to bedroom 1; bath has two doors (bedroom 1 and hall); hall opens wide to living and leads to bedroom 2 and the kitchenette, which has the second (south-side) exterior exit. Other sizes not listed.'},
-front:{name:'Front vehicle barn',pos:off([-16,29,96],FR),target:off([-46,3,54],FR),show:['front'],text:'WNW of the house, nearer Deal Rd / the front drive (diagrammatic — not surveyed). Modeled 30 × 40 ft (MLS dimensional conflict unresolved); 12 ft ceiling assignment assumed. Overhead AND sliding barn doors. 2022 Airstream Interstate 24X 4x4 on 2021 Mercedes Sprinter 3500 chassis + Porsche (wishlist) + owned Mustang. Barn rotation and door heights unverified.'},
-gym:{name:'Rear CrossFit box',pos:off([-13,31,-20],GY),target:off([-49,3,-57],GY),show:['gym'],text:'SE of the house on the back / east-south lawn (listing photo 01, IMG_5199 ~0:30). ~9′6″ ceiling (tight — no rope climb by default). 30×40 insulated/plywood CrossFit box with 4 stations: rig/pull-ups, platforms, cardio (Peloton/rower/treadmill), DB/KB storage, wall-ball, open floor; rubber floor + mini-split. Sliding + man doors for airflow. Rotation/size unresolved.'},
-recovery:{name:'Rear recovery + observed stove',pos:off([-54,15,-22],GY),target:off([-48,3,-40],GY),show:['gym'],text:'Recovery corner (massage chair; barn sauna/plunge are ALTERNATES — primary sauna+plunge are at the East Deck on the east slope). Observed black wood stove on rear-left wall; not confirmed as ducted heating.'},
-houseSauna:{name:'House 4-person skid sauna',pos:[VC('sauna')[0]+22,32,VC('sauna')[2]+28],target:[VC('sauna')[0],12,VC('sauna')[2]],show:['deck','main','garage'],text:'8×12 board-and-batten skid sauna (scaled from 9×16 reference) just east of the East Deck, on a pier over the back/east slope: changing room + hot room, east picture windows toward Elk Lake, wood stove fired outside on the south wall with chimney clear of house eaves. Cold plunge sits on the East Deck beside the pier. Alt: north wrap of the East Deck, or a pad by the SE gym barn.'},deck:{name:'Deck spa alternatives',pos:[VC('wrapdeck')[0]+35,45,VC('wrapdeck')[2]+30],target:[VC('sauna')[0],10,VC('wrapdeck')[2]],show:['deck','main'],text:'The East Deck (large lake-view wrap, facing east / Elk Lake, opposite the garage doors) holds the cold plunge; an 8×12 4-person wood-fired skid sauna sits on a pier just east of it over the slope (stove chimney away from eaves). The inset south courtyard (enclosed E/N/W, open south) is a different, smaller deck — not the East Deck. Living has no door onto the East Deck; reach it from outside.'},
-garage:{name:'Attached garage · Tesla + Cadillac',pos:[VC('garage')[0]+30,50,VC('garage')[2]+40],target:[VC('garage')[0],10,VC('garage')[2]],show:['garage','main'],text:'Single-story garage on the west (front) side. Overhead doors face west toward Deal Rd / the driveway — opposite the East Deck (IMG_5199 ~6:30). Interior door into the west end of the main-hall T. MLS 2-car vs seller 2.5-car; exact width unverified. Proposed Model Y and Jenny’s Cadillac XT5; clearances not verified.'}
+site:{name:'Property overview',pos:[220,320,420],target:[70,4,80],show:['site','main','upper','lower','garage','front','gym','deck'],text:'North (lakes) is toward −Z, marked “N · LAKES”. Barns are placed from aerial offsets (Airstream NE, gym SE). Rear barn working size 30×40 ft with a 9′6″–10′ clear height (owner walk; width may be 35 ft). Use the overlays for utilities (1993 well and septic, approximate, not surveyed) and the Future concept cottage. The site plan is diagrammatic, not a survey.'},
+lounge:{name:'Main-floor nightclub lounge',pos:[VC('living')[0]+14,34,VC('living')[2]+22],target:[VC('living')[0]-2,12,VC('living')[2]-3],show:['main'],night:true,text:'Living 22′11″ × 17′ (listing). North glass is windows only — no door. Stone fireplace on the west wall; open stair rises south along the east side. Steinway B by the stair: keyboard/bench on the north windows, tail south, lid opening west toward the fireplace; cigar chairs around the fire; bar niches in the fireplace built-ins; mirrored mosaic panel proposed on the chimney breast.'},
+main:{name:'Main level + primary suite',pos:[60,95,95],target:[5,10,5],show:['main','garage','deck'],text:'North up. Primary bedroom (17′5″ × 13′10″) is east of the living room. Main hall runs north–south between them; primary door on its east side. Kitchen 14′3″ × 12′11″ and dining 13′5″ × 8′8″ south of living; dining slider to the west patio. Walking south, the half bath is the last door on the right, then a T at the garage door: left to the small side deck, right toward the front of the house. Orange “?” marks unverified items.'},
+primary:{name:'Main-level primary suite',pos:[VC('primary')[0]+18,40,VC('primary')[2]+26],target:[VC('primary')[0],10,VC('primary')[2]],show:['main'],text:'Primary bedroom 17′5″ × 13′10″ (listing), north lake windows, entered from the main hall. Bath size and door position not listed.'},
+kitchen:{name:'Kitchen + dining',pos:[VC('kitchen')[0]+12,38,VC('kitchen')[2]+26],target:[VC('kitchen')[0]-4,10,VC('kitchen')[2]],show:['main'],text:'Kitchen 14′3″ × 12′11″ open to living (north) and dining (west). Dining 13′5″ × 8′8″ with slider to the stone patio; its axis is unverified. Cabinets are schematic.'},
+upper:{name:'Upstairs offices + closet room',pos:[40,80,70],target:[-6,20,2],show:['upper'],text:'West and east rooms have END-wall doors (hallway runs into them); middle closet and bath keep side-of-hall doors. Walking up the stairs (facing south): the bathroom door is almost straight ahead, slightly to the right (west); Clark’s east office door is immediately to the left (end-wall door, short entry alcove into the listed rectangle). Hall rail faces north over the living void. West and east are about the same size. Upper mass sits over kitchen/dining/hall — not drawn over the primary bedroom (unverified). Listing bedroom-number mapping unverified.'},
+lower:{name:'Lower apartment + sectional',pos:[55,70,75],target:[0,0,5],show:['lower'],text:'Lower living 19′ × 16′10″ (listing) with the large sectional facing the north windows/TV; half-glass door to the covered patio. Wooden door to bedroom 1; bath has two doors (bedroom 1 and hall); hall opens wide to living and leads to bedroom 2 and the kitchenette, which has the second exterior exit. Other sizes not listed.'},
+front:{name:'Front vehicle barn',pos:off([-16,29,96],FR),target:off([-46,3,54],FR),show:['front'],text:'NE of the house, placed from the aerial offset (~30 m). Modeled 30×40 ft (MLS may list one barn as 35×40). 12 ft ceiling assignment assumed. Overhead and sliding barn doors. 2022 Airstream Interstate 24X 4x4 + Porsche (wishlist) + owned Mustang. Stay outside the 50 ft well radius when driving north of the house. Rotation and door heights unverified.'},
+gym:{name:'Rear CrossFit box',pos:off([-13,31,-20],GY),target:off([-49,3,-57],GY),show:['gym'],text:'SE of the house, placed from the aerial offset. Working size 30×40 ft (width may be 35 ft) with a 9′6″–10′ clear height to the truss bottom (owner walk ~10 ft; seller 9′6″). Free-standing Rogue ML-14 (14×6, 9 ft uprights, bars at 7′6″, 4 squat / 8 pull-up) near the center; Florida wall rack on a side wall only. ¾″ stall mats over the whole slab. No rope climb by default (about 24 in above the bar at 9′6″). Sliding + man doors. Rotation unverified.'},
+recovery:{name:'Rear recovery + observed stove',pos:off([-54,15,-22],GY),target:off([-48,3,-40],GY),show:['gym'],text:'Recovery corner (massage chair; barn sauna/plunge are ALTERNATES — primary sauna+plunge are at the house east deck). Observed black wood stove on rear-left wall; not confirmed as ducted heating.'},
+houseSauna:{name:'House 4-person skid sauna',pos:[VC('sauna')[0]+22,32,VC('sauna')[2]+28],target:[VC('sauna')[0],12,VC('sauna')[2]],show:['deck','main','garage'],text:'8×12 board-and-batten skid sauna (scaled from the 9×16 reference) in the back yard (east), on a pier just off the inset east deck: changing room + hot room, east picture windows, wood stove fired outside on the south wall with chimney clear of house eaves. Cold plunge sits on the small east deck beside the pier. If east-slope piers are impractical, use the closest east/southeast pad near the house.'},deck:{name:'Deck spa alternatives',pos:[VC('sidedeck')[0]+30,45,VC('sidedeck')[2]+30],target:[VC('sidedeck')[0],10,VC('sidedeck')[2]],show:['deck','main'],text:'The large wrap deck starts on the west side and wraps to the north, facing Elk Lake; living has no door onto it — reach it from the west patio. The small inset east deck (N/W/S enclosed, open east into the back yard) holds the cold plunge; an 8×12 4-person wood-fired skid sauna sits on a pier just east of it over the slope (stove chimney away from eaves).'},
+garage:{name:'Attached garage · Tesla + Cadillac',pos:[VC('garage')[0]+30,50,VC('garage')[2]+40],target:[VC('garage')[0],10,VC('garage')[2]],show:['garage','main'],text:'Single-story garage at the south end, shifted west so it closes the inset east deck on the south. Overhead doors face WEST toward Deal Rd / the driveway (IMG_5199 ~6:30). Interior door into the south end of the main-hall T. MLS 2-car vs seller 2.5-car; exact width unverified. Proposed Model Y and Jenny’s Cadillac XT5; clearances not verified.'}
 };
 const sel=document.getElementById('view');for(const [k,v] of Object.entries(views)){const op=document.createElement('option');op.value=k;op.textContent=v.name;sel.append(op);}
 function setNight(n){night=n;amb.intensity=n?.25:.9;sun.intensity=n?.15:1.4;scene.background.set(n?0x17202d:0xb7ccd2);renderer.toneMappingExposure=n?1.25:1.12;clubLights.forEach(p=>p.intensity=(n?1:.32)*p.userData.power);}

@@ -1,0 +1,284 @@
+{
+  "note": "No parcel identifiers. Future concept on the east land.",
+  "elevations_ft": {
+    "house_roof": 809.7,
+    "east_deck": 809.3,
+    "wrap_deck": 805.9,
+    "airstream": 800.6,
+    "gym": 817.9,
+    "cottage": 826.3,
+    "well": 830.1,
+    "septic": 820.5,
+    "deal_rd_nearest": 741.4,
+    "drive_entry": 744.5,
+    "apron": 816.5
+  },
+  "slopes": {
+    "east_of_east_deck_80ft_pct": -4.3,
+    "east_ese_of_deck_pct": -1.2,
+    "north_of_house_130ft_pct": -9.6,
+    "south_of_house_130ft_pct": 6.2,
+    "deal_rd_to_house_pct": 7.3,
+    "house_to_cottage_pct": 5.2,
+    "notes": "Positive percent is rising in the direction of the transect. The parcel faces north: ground falls toward Deal Rd and rises toward the south woods."
+  },
+  "access_public": {
+    "deal_rd": "Deal Rd runs east-west about 900+ ft north of the house. The existing driveway comes in from the north and curves down the west side to the west-facing garage.",
+    "east_land_frontage": "The east land does not have its own Deal Rd frontage. Recommended access is a spur off the existing driveway, past the gym barn, with a turnaround at the cottage.",
+    "track": "An unpaved track east of the house heads toward a neighbor and other roads; it is probably not this land\u2019s road frontage."
+  },
+  "cottage_public": {
+    "size": "1,000\u20131,400 sf, 1.5 stories, 2 bedrooms",
+    "porch": "north-facing lake-view porch/deck",
+    "siting": "Southeast of the gym barn, on the east land, clear of both barns. Uphill and south of the main house so it sits out of the primary north/lake view from the wrap deck. The gym barn plus a new evergreen (or mixed) buffer on the cottage\u2019s north-west side screens the main house\u2019s east deck. Porch faces north / north-east, looking down the falling grade toward distant Elk Lake.",
+    "screening": "Propose a 2\u20133 row evergreen (or mixed native) buffer on the NW side, 20\u201330 ft deep, and keep existing south-edge trees. A low berm (3\u20134 ft) can be added if, after leaf-off, the east deck still sees the cottage.",
+    "confidence": "Moderate. Bare-earth 2016 1 m 3DEP is reliable for grade; it does not include trees or buildings. Leaf-on aerials show woods west/south/north of the house and a mostly open field on the east land, with more trees at the south edge \u2014 good for screening a SE cottage, but winter views may be more open. Distant lake views are elevated, not shoreline. Intervening vegetation between here and the lake is not modeled. Confirm on site, preferably leaf-off."
+  },
+  "sauna": {
+    "spot": "Keep the 8\u00d712 wood-fired sauna just east of the inset east deck, on piers if the local grade needs them, with the cold plunge on the deck.",
+    "east_grade_pct_over_80ft": -4.3,
+    "note": "The steep drop at this house is to the NORTH (walk-out under the wrap deck), not a sharp east-facing bluff. The east side is a milder cross-slope; piers are still reasonable if the yard falls away at the deck edge or over the east yard. Measure on site before building the pier foundation."
+  },
+  "lake_views": {
+    "direction": "Elk Lake water is about 1.5 km or more to the east / northeast of the house (not a backyard shoreline). \u201cLake views north\u201d from the wrap deck and from a north-facing cottage porch are distant, elevated views, more NNE/NE than due north.",
+    "house_elev_ft": 809.7,
+    "deal_rd_elev_ft": 741.4,
+    "relief_house_above_deal_rd_ft": 68.3,
+    "elk_lake_surface_ft_approx": 590,
+    "house_above_lake_ft_approx": 220.0,
+    "cottage_above_lake_ft_approx": 236.0
+  },
+  "driveway_costs_estimates": {
+    "currency": "USD",
+    "label": "ESTIMATES only, Northern Michigan ballpark, not bids. A separate driveway/contractor quote should replace these.",
+    "spur_length_ft": 296.0,
+    "existing_drive_length_ft": 1092.0,
+    "gravel_12ft": {
+      "length_ft": 336.0,
+      "width_ft": 12,
+      "area_sf": 4031.0,
+      "low": 16100,
+      "high": 36300
+    },
+    "gravel_20ft_fire": {
+      "length_ft": 336.0,
+      "width_ft": 20,
+      "area_sf": 6719.0,
+      "low": 26900,
+      "high": 60500
+    },
+    "asphalt_12ft": {
+      "length_ft": 336.0,
+      "width_ft": 12,
+      "area_sf": 4031.0,
+      "low": 32300,
+      "high": 64500
+    },
+    "asphalt_20ft_fire": {
+      "length_ft": 336.0,
+      "width_ft": 20,
+      "area_sf": 6719.0,
+      "low": 53800,
+      "high": 107500
+    },
+    "fire_notes": "If the spur is a dead end longer than about 150 ft, many fire codes (IFC Appendix D / local rural standards) want a turnaround (hammerhead or T) and often a 20-ft unobstructed width. Confirm with Whitewater Township and the fire department. Grades on the spur should stay under ~10% if possible."
+  },
+  "model": {
+    "anchor_model_xz": [
+      12.0,
+      16.0
+    ],
+    "axis": "+X east, +Z south, feet, Y up",
+    "east_land_ring": [
+      [
+        294.35,
+        132.68
+      ],
+      [
+        298.34,
+        -485.94
+      ],
+      [
+        298.98,
+        -585.25
+      ],
+      [
+        99.64,
+        -587.24
+      ],
+      [
+        100.99,
+        -487.24
+      ],
+      [
+        94.96,
+        429.85
+      ],
+      [
+        106.71,
+        429.99
+      ],
+      [
+        293.88,
+        432.17
+      ]
+    ],
+    "existing_drive": [
+      [
+        100.17,
+        -908.01
+      ],
+      [
+        100.17,
+        -677.92
+      ],
+      [
+        63.86,
+        -422.27
+      ],
+      [
+        -0.97,
+        -203.13
+      ],
+      [
+        -47.06,
+        -66.02
+      ],
+      [
+        -60.18,
+        98.02
+      ],
+      [
+        -53.62,
+        163.64
+      ]
+    ],
+    "spur": [
+      [
+        -53.62,
+        163.64
+      ],
+      [
+        28.4,
+        212.85
+      ],
+      [
+        105.5,
+        266.66
+      ],
+      [
+        140.85,
+        241.72
+      ],
+      [
+        190.06,
+        281.09
+      ]
+    ],
+    "hammerhead": [
+      [
+        131.01,
+        281.09
+      ],
+      [
+        249.12,
+        281.09
+      ]
+    ],
+    "trail": [
+      [
+        71.06,
+        16.0
+      ],
+      [
+        153.08,
+        65.21
+      ],
+      [
+        124.45,
+        215.48
+      ],
+      [
+        190.06,
+        281.09
+      ]
+    ],
+    "cottage_xz": [
+      190.06,
+      281.09
+    ],
+    "airstream_xz": [
+      81.55,
+      -53.55
+    ],
+    "gym_xz": [
+      79.26,
+      201.04
+    ],
+    "grid": {
+      "x0": -200,
+      "x1": 360,
+      "z0": -960,
+      "z1": 480,
+      "nx": 140,
+      "nz": 180,
+      "zmin": 739.13,
+      "zmax": 850.79,
+      "house_elev_ft": 809.73,
+      "anchor_x": 12.0,
+      "anchor_z": 16.0,
+      "source": "USGS 3DEP 1 m (ImageServer export, NAVD88), converted meters\u2192feet; acquisition 2016-04-02"
+    },
+    "heightmap": "assets/site-terrain-height.png",
+    "cottage_well_xz": [
+      216.31,
+      353.27
+    ],
+    "cottage_septic_xz": [
+      163.82,
+      189.23
+    ],
+    "house_well_xz": [
+      28,
+      -35
+    ],
+    "house_tank_xz": [
+      20,
+      90
+    ],
+    "house_field": {
+      "x": -5,
+      "z": 115,
+      "w": 50,
+      "d": 21
+    },
+    "barn_well_xz": [
+      168,
+      210
+    ],
+    "barn_tank_xz": [
+      120,
+      170
+    ],
+    "barn_field": {
+      "x": 115,
+      "z": 145,
+      "w": 20,
+      "d": 16
+    },
+    "utilities_note": "House well, tank, and drain field are approximate from the 1993 as-built sketch, not surveyed. The barn well and septic are a future option (accessory use). No permit numbers."
+  },
+  "sources_short": {
+    "elevation": "USGS 3DEP 1 m DEM via elevation.nationalmap.gov ImageServer export (NAVD88, meters converted to feet). Spot-checked with EPQS v1 (units=Feet, resolution=1 m, AcquisitionDate 2016-04-02).",
+    "parcels": "Grand Traverse County Tax_Parcel_Public FeatureServer (NAD83 / WGS84).",
+    "roads": "Grand Traverse County Road_Centerline_Public FeatureServer.",
+    "imagery": "Esri World Imagery MapServer export; Google Maps satellite screenshots in site-research/gmaps/ (closeup, wide, terrain).",
+    "contours_attempted": "Grand Traverse County GTC_Contours_1ft (5-ft index). Used 3DEP grid as primary if contours are delayed."
+  },
+  "utilities_public": {
+    "disclaimer": "Approximate, from the 1993 sketch, not surveyed.",
+    "existing": "Well north of the house; 2,000-gal tank about 22 ft south of the house; 21\u00d750 ft drain bed about 22 ft beyond the tank (no-drive / no-build); house-to-tank sewer; 50 ft well setback and 10 ft property-line setback.",
+    "optionA": "Tie the barn bath into the house water and septic, about $15K\u2013$42K plus possible septic enlargement. A direct trench would cut the drain field \u2014 route around it. Permits required. Accessory use only.",
+    "optionB": "Future option: separate well and septic near the rear barn. Well $10K\u2013$20K, septic $10K\u2013$25K, bath build-out $10K\u2013$20K, total about $30K\u2013$65K. The well could also serve a future cottage. Accessory use only (no bedroom or kitchen). Estimates; permits required."
+  }
+}

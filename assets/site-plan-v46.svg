@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1500" viewBox="0 0 1400 1500">
+<rect width="1400" height="1500" fill="#f3eee2"/>
+<text x="700.0" y="36" text-anchor="middle" font-family="Georgia,serif" font-size="26" fill="#2a261f">10746 E Deal Rd · site plan (concept)</text>
+<text x="700.0" y="58" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#5a5346">Approximate · not a survey · utilities from the 1993 sketch · future layers are concepts only</text>
+
+<rect x="737.5" y="70.0" width="566.7" height="1360.0" fill="#e7efd8" stroke="#b8c49a" stroke-width="1"/>
+<text x="1021.4" y="443.3" font-size="12" font-family="Georgia,serif" text-anchor="middle" fill="#4d5a3c">East land (future concept)</text>
+<rect x="214.0" y="70.0" width="523.5" height="1360.0" fill="#efe8d8" fill-opacity="0.5" stroke="#9aa58a" stroke-width="1"/>
+<text x="378.6" y="443.3" font-size="12" font-family="Georgia,serif" text-anchor="middle" fill="#4d5a3c">Property</text>
+<path d="M430.0,70.0 L360.4,293.9 L326.7,731.4 L343.5,906.4" fill="none" stroke="#8a8680" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M343.5,906.4 L554.5,1037.6 L752.7,1181.1 L843.6,1114.6 L970.2,1219.6" fill="none" stroke="#7a756c" stroke-width="7" stroke-dasharray="10 6" stroke-linecap="round"/>
+<path d="M818.3,1219.6 L1122.0,1219.6" fill="none" stroke="#7a756c" stroke-width="7" stroke-dasharray="10 6"/>
+<ellipse cx="553.4" cy="376.7" rx="128.6" ry="133.3" fill="#3d6ea8" fill-opacity="0.12" stroke="#6aa4d8" stroke-width="2" stroke-dasharray="6 4"/>
+<ellipse cx="553.4" cy="376.7" rx="5.1" ry="5.3" fill="#3d6ea8" fill-opacity="1" stroke="#1f3d5c" stroke-width="1"/>
+<text x="553.4" y="342.0" font-size="13" font-family="Georgia,serif" text-anchor="middle" fill="#2a261f">Well (north of house)</text>
+<text x="661.4" y="376.7" font-size="11" font-family="Georgia,serif" text-anchor="middle" fill="#3d6ea8">50 ft setback</text>
+<rect x="455.7" y="438.0" width="138.9" height="32.0" fill="#d9c9a8" fill-opacity="1" stroke="#6a5e4e" stroke-width="1.2"/>
+<rect x="455.7" y="470.0" width="25.7" height="45.3" fill="#d9c9a8" fill-opacity="1" stroke="#6a5e4e" stroke-width="1.2"/>
+<rect x="481.4" y="470.0" width="58.9" height="45.3" fill="#efe6d2" fill-opacity="1" stroke="#6a5e4e" stroke-width="1.2"/>
+<rect x="503.7" y="515.3" width="36.6" height="34.7" fill="#efe6d2" fill-opacity="1" stroke="#6a5e4e" stroke-width="1.2"/>
+<rect x="481.4" y="515.3" width="22.3" height="35.7" fill="#efe6d2" fill-opacity="1" stroke="#6a5e4e" stroke-width="1.2"/>
+<rect x="540.4" y="470.0" width="9.0" height="109.3" fill="#efe6d2" fill-opacity="1" stroke="#6a5e4e" stroke-width="1.2"/>
+<rect x="549.4" y="470.0" width="44.8" height="36.9" fill="#efe6d2" fill-opacity="1" stroke="#6a5e4e" stroke-width="1.2"/>
+<rect x="466.0" y="579.3" width="109.3" height="64.0" fill="#e8e0cf" fill-opacity="1" stroke="#6a5e4e" stroke-width="1.2"/>
+<rect x="549.4" y="552.7" width="25.7" height="26.7" fill="#d9c9a8" fill-opacity="1" stroke="#6a5e4e" stroke-width="1.2"/>
+<rect x="581.5" y="555.3" width="30.9" height="21.3" fill="#c9a37a" fill-opacity="1" stroke="#6a5e4e" stroke-width="1.2"/>
+<text x="512.3" y="491.3" font-size="14" font-family="Georgia,serif" text-anchor="middle" fill="#2a261f">House</text>
+<text x="520.0" y="611.3" font-size="12" font-family="Georgia,serif" text-anchor="middle" fill="#2a261f">Garage</text>
+<text x="597.1" y="566.0" font-size="11" font-family="Georgia,serif" text-anchor="middle" fill="#2a261f">Sauna</text>
+<text x="468.6" y="454.0" font-size="11" font-family="Georgia,serif" text-anchor="middle" fill="#2a261f">N wrap deck</text>
+<rect x="652.6" y="273.9" width="77.1" height="106.7" fill="#cfd3c8" fill-opacity="1" stroke="#5a5e58" stroke-width="1.2"/>
+<text x="691.1" y="327.2" font-size="12" font-family="Georgia,serif" text-anchor="middle" fill="#2a261f">Airstream barn</text>
+<rect x="646.7" y="952.8" width="77.1" height="106.7" fill="#cfd3c8" fill-opacity="1" stroke="#5a5e58" stroke-width="1.2"/>
+<text x="685.2" y="1006.1" font-size="12" font-family="Georgia,serif" text-anchor="middle" fill="#2a261f">Gym barn 30×40</text>
+<text x="685.2" y="1038.0" font-size="10" font-family="Georgia,serif" text-anchor="middle" fill="#5a5346">(working size)</text>
+<rect x="522.6" y="702.0" width="20.6" height="16.0" fill="#6b5344" fill-opacity="0.95" stroke="#3e3229" stroke-width="1"/>
+<text x="532.9" y="688.7" font-size="12" font-family="Georgia,serif" text-anchor="middle" fill="#3e3229">2,000-gal tank</text>
+<rect x="468.6" y="776.7" width="128.6" height="56.0" fill="#b85c38" fill-opacity="0.4" stroke="#8a3d22" stroke-width="1.4"/>
+<path d="M468.6,819.3 L481.4,832.7" fill="none" stroke="#8a3d22" stroke-width="1"/>
+<path d="M468.6,806.0 L494.3,832.7" fill="none" stroke="#8a3d22" stroke-width="1"/>
+<path d="M468.6,792.7 L507.1,832.7" fill="none" stroke="#8a3d22" stroke-width="1"/>
+<path d="M468.6,779.3 L520.0,832.7" fill="none" stroke="#8a3d22" stroke-width="1"/>
+<path d="M478.9,776.7 L532.9,832.7" fill="none" stroke="#8a3d22" stroke-width="1"/>
+<path d="M491.7,776.7 L545.7,832.7" fill="none" stroke="#8a3d22" stroke-width="1"/>
+<path d="M504.6,776.7 L558.6,832.7" fill="none" stroke="#8a3d22" stroke-width="1"/>
+<path d="M517.4,776.7 L571.4,832.7" fill="none" stroke="#8a3d22" stroke-width="1"/>
+<path d="M530.3,776.7 L584.3,832.7" fill="none" stroke="#8a3d22" stroke-width="1"/>
+<path d="M543.1,776.7 L597.1,832.7" fill="none" stroke="#8a3d22" stroke-width="1"/>
+<path d="M556.0,776.7 L597.1,819.3" fill="none" stroke="#8a3d22" stroke-width="1"/>
+<path d="M568.9,776.7 L597.1,806.0" fill="none" stroke="#8a3d22" stroke-width="1"/>
+<path d="M581.7,776.7 L597.1,792.7" fill="none" stroke="#8a3d22" stroke-width="1"/>
+<path d="M594.6,776.7 L597.1,779.3" fill="none" stroke="#8a3d22" stroke-width="1"/>
+<text x="532.9" y="804.7" font-size="13" font-family="Georgia,serif" text-anchor="middle" fill="#5a2010">21×50 drain bed</text>
+<text x="532.9" y="822.0" font-size="12" font-family="Georgia,serif" text-anchor="middle" fill="#5a2010">NO DRIVE / NO BUILD</text>
+<path d="M538.0,552.7 L538.0,643.3 L532.9,702.0" fill="none" stroke="#c9a36a" stroke-width="2.5"/>
+<path d="M684.6,1006.0 L700.0,1006.0 L700.0,763.3 L532.9,763.3 L532.9,702.0" fill="none" stroke="#5aa0c8" stroke-width="2" stroke-dasharray="8 5"/>
+<path d="M684.6,1006.0 L532.9,710.0" fill="none" stroke="#c0453a" stroke-width="2" stroke-dasharray="3 4"/>
+<text x="707.7" y="870.0" font-size="11" font-family="Georgia,serif" text-anchor="start" fill="#2a5470">Option A: go around</text>
+<text x="622.9" y="923.3" font-size="11" font-family="Georgia,serif" text-anchor="start" fill="#a03028">Do not trench through the field</text>
+<ellipse cx="913.4" cy="1030.0" rx="128.6" ry="133.3" fill="#2f8f6b" fill-opacity="0.1" stroke="#5ec49a" stroke-width="2" stroke-dasharray="6 4"/>
+<ellipse cx="913.4" cy="1030.0" rx="5.1" ry="5.3" fill="#2f8f6b" fill-opacity="1" stroke="#1c5a42" stroke-width="1"/>
+<text x="913.4" y="998.0" font-size="12" font-family="Georgia,serif" text-anchor="middle" fill="#1c5a42">Future barn well</text>
+<rect x="783.6" y="912.7" width="12.9" height="21.3" fill="#3e6b55" fill-opacity="0.9" stroke="#1c5a42" stroke-width="1"/>
+<text x="790.0" y="902.0" font-size="11" font-family="Georgia,serif" text-anchor="middle" fill="#1c5a42">Future barn tank</text>
+<rect x="777.1" y="856.7" width="51.4" height="42.7" fill="#3e8f6b" fill-opacity="0.35" stroke="#1c5a42" stroke-width="1"/>
+<text x="802.9" y="878.0" font-size="11" font-family="Georgia,serif" text-anchor="middle" fill="#1c5a42">Future barn field</text>
+<rect x="923.9" y="1166.2" width="92.6" height="106.7" fill="#d8c4a4" fill-opacity="0.9" stroke="#6a5e4e" stroke-width="1.3"/>
+<rect x="939.3" y="1144.9" width="61.7" height="21.3" fill="#8a7355" fill-opacity="0.9" stroke="#6a5e4e" stroke-width="1"/>
+<text x="970.0" y="1219.3" font-size="13" font-family="Georgia,serif" text-anchor="middle" fill="#2a261f">Future concept</text>
+<text x="970.0" y="1251.3" font-size="11" font-family="Georgia,serif" text-anchor="middle" fill="#5a5346">cottage 1,000–1,400 sf</text>
+<path d="M574.0,566.0 L970.0,1219.3" fill="none" stroke="#c4b07a" stroke-width="1.2" stroke-dasharray="4 4"/>
+<g transform="translate(80,120)">
+<polygon points="0,-28 8,10 -8,10" fill="#1c2a33"/>
+<text x="0" y="28" text-anchor="middle" font-size="14" font-family="Georgia,serif">N · lakes</text></g>
+<rect x="980" y="80" width="360" height="420" fill="#f7f3ea" stroke="#c5bba8"/>
+<text x="996" y="108" font-size="15" font-family="Georgia,serif" font-weight="bold" fill="#2a261f">Legend</text>
+<text x="996" y="124" font-size="12" font-family="Georgia,serif" fill="#2a261f">House, garage, east sauna</text>
+<text x="996" y="144" font-size="12" font-family="Georgia,serif" fill="#2a261f">Existing driveway (west of field)</text>
+<text x="996" y="164" font-size="12" font-family="Georgia,serif" fill="#2a261f">Well + 50 ft setback (1993 sketch)</text>
+<text x="996" y="184" font-size="12" font-family="Georgia,serif" fill="#2a261f">2,000-gal tank, ~22 ft south of house</text>
+<text x="996" y="204" font-size="12" font-family="Georgia,serif" fill="#2a261f">21×50 drain bed — no drive / no build</text>
+<text x="996" y="224" font-size="12" font-family="Georgia,serif" fill="#2a261f">House-to-tank sewer (approx.)</text>
+<text x="996" y="244" font-size="12" font-family="Georgia,serif" fill="#2a261f">Option A route (skirt the field)</text>
+<text x="996" y="264" font-size="12" font-family="Georgia,serif" fill="#2a261f">Do not trench through the field</text>
+<text x="996" y="284" font-size="12" font-family="Georgia,serif" fill="#2a261f">Future option: barn well + septic</text>
+<text x="996" y="304" font-size="12" font-family="Georgia,serif" fill="#2a261f">Future concept cottage + spur</text>
+<text x="996" y="324" font-size="12" font-family="Georgia,serif" fill="#2a261f">All utilities: approximate, not surveyed</text>
+<text x="996" y="344" font-size="12" font-family="Georgia,serif" fill="#2a261f">Estimates only; permits required</text>
+<text x="996" y="364" font-size="12" font-family="Georgia,serif" fill="#2a261f">Barn bath is accessory use only</text>
+<text x="996" y="384" font-size="12" font-family="Georgia,serif" fill="#2a261f">No permit numbers on this plan</text>
+<text x="700.0" y="1472" text-anchor="middle" font-size="12" font-family="Georgia,serif" fill="#5a5346">Working rear-barn size 30×40 ft, 9′6″–10′ clear. Cottage, spur, and barn well/septic are future concepts. Confirm on the ground.</text>
+</svg>
