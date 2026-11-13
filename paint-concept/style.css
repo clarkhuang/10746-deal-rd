@@ -429,3 +429,19 @@ footer a { color: var(--gold); }
   .print-keep { break-inside: avoid; break-before: page; page-break-inside: avoid; page-break-before: always; }
   .print-keep .concept-shot.site-plan img { max-height: 8in; width: auto; margin: 0 auto; }
 }
+
+.floorplan-shot { max-width: 640px; }
+.floorplan-shot img { width: 100%; height: auto; object-fit: contain; background: #fff; }
+@media print {
+  .gallery { break-inside: auto; grid-template-columns: 1fr 1fr !important; }
+  .gallery figure:first-child { grid-column: 1 / -1; }
+  .gallery figure { break-inside: avoid; margin-bottom: .6rem; }
+  .gallery img, .gallery figure:first-child img {
+    height: auto;
+    max-height: 4.6in;
+    object-fit: contain;
+    background: #fff;
+  }
+  .gallery figure:first-child img { max-height: 6.2in; }
+  .floorplan-shot img { max-height: 5.2in; }
+}
