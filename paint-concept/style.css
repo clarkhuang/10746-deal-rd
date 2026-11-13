@@ -392,3 +392,40 @@ footer a { color: var(--gold); }
   .compare .tag-before { display:none; }
   a.btn { border: 1px solid #333; color: #000; background: none; }
 }
+
+/* Kept-as-is rooms (living room) and cottage concept shots */
+.original-only { margin: 0; }
+.original-only .compare-stage { position: relative; }
+.original-only figcaption {
+  font-size: .82rem;
+  color: var(--muted);
+  margin: .35rem .15rem 0;
+}
+.concept-shot { margin: 1rem 0 1.4rem; }
+.concept-shot img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  background: #f3efe6;
+}
+.concept-shot figcaption {
+  font-size: .82rem;
+  color: var(--muted);
+  margin: .4rem .15rem 0;
+}
+.concept-shot.site-plan { max-width: 720px; }
+.grounds-3 { grid-template-columns: 1fr; }
+@media (min-width: 900px) {
+  .grounds-3 { grid-template-columns: 1fr 1fr; }
+  .grounds-3 figure:first-child { grid-column: 1 / -1; }
+}
+@media print {
+  .concept-shot, .original-only, .grounds figure { break-inside: avoid; }
+  .concept-shot.site-plan { max-width: 100%; }
+  .concept-shot.site-plan img { max-height: 9.5in; object-fit: contain; }
+}
+@media print {
+  .print-keep { break-inside: avoid; break-before: page; page-break-inside: avoid; page-break-before: always; }
+  .print-keep .concept-shot.site-plan img { max-height: 8in; width: auto; margin: 0 auto; }
+}
