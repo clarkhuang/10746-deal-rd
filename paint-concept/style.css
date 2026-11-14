@@ -445,3 +445,13 @@ footer a { color: var(--gold); }
   .gallery figure:first-child img { max-height: 6.2in; }
   .floorplan-shot img { max-height: 5.2in; }
 }
+
+.massing-pair { max-width: 100%; }
+.massing-pair img { width: 100%; height: auto; background: #14213d; }
+.camera-key { max-width: 520px; }
+@media print {
+  .massing-pair { break-inside: avoid; }
+  .massing-pair img { max-height: 4.8in; object-fit: contain; }
+  .camera-key { max-width: 100%; }
+  .camera-key img { max-height: 8in; width: auto; margin: 0 auto; object-fit: contain; }
+}
